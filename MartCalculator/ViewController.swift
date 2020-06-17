@@ -105,7 +105,7 @@ class ViewController: UIViewController {
 //            }
             let currencyFormatter = NumberFormatter()
             currencyFormatter.usesGroupingSeparator = true
-            currencyFormatter.numberStyle = .decimal
+            currencyFormatter.numberStyle = .currency
             currencyFormatter.locale = Locale.current
             priceLbl.text = currencyFormatter.string(for: price)
         }
@@ -118,6 +118,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func onTouchUpInside_Btn(_ sender: UIButton) {
+        if nameLbl.isEditing {
+            return
+        }
+        
         let btnType: BtnType?
         switch sender.titleLabel!.text {
         case "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "00", "000":
@@ -197,7 +201,12 @@ class ViewController: UIViewController {
         case .dot:
             dotIdx = 1
         case .allClear:
-            clearAll()
+            let vc = UIAlertController(title: nil, message: "전체 삭제하시겠습니까?", preferredStyle: .alert)
+            vc.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+                self.clearAll()
+            }))
+            vc.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+            present(vc, animated: true, completion: nil)
         case .clear:
             clearCurrent()
         case .price, .count:
@@ -207,7 +216,7 @@ class ViewController: UIViewController {
                 return
             }
             let item = MartItem(context: CoreDataManager.shared.context)
-            item.count = Int32(count)
+            item.count = Int64(count)
             item.price = price
             item.name = nameLbl.text
             item.createdAt = Date()
@@ -219,6 +228,8 @@ class ViewController: UIViewController {
             tableView.footerView(forSection: 0)!.textLabel!.text = footerString()
             tableView.footerView(forSection: 0)!.textLabel!.sizeToFit()
             tableView.endUpdates()
+            
+            tableView.scrollToRow(at: IndexPath(row: calculator.items.count-1, section: 0), at: UITableView.ScrollPosition(rawValue: 0)!, animated: true)
             
             switchsPriceOrCountType = .price
         }
@@ -240,10 +251,10 @@ class ViewController: UIViewController {
     var switchsPriceOrCountType = BtnType.price {
         didSet {
             if switchsPriceOrCountType == .price {
-                priceOrCountBtn.titleLabel!.text = "갯수"
+                priceOrCountBtn.setTitle("갯수", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
             } else {
-                priceOrCountBtn.titleLabel!.text = "가격"
+                priceOrCountBtn.setTitle("가격", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
             }
             updateDotBtn()

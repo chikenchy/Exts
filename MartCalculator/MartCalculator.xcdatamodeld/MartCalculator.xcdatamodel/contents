@@ -5,7 +5,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <entity name="MartItem" representedClassName="MartItem" syncable="YES" codeGenerationType="class">
-        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES"/>
         <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="614061240" usesScalarValueType="NO"/>
         <attribute name="hostoryId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
