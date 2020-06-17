@@ -14,6 +14,15 @@
 		7172283724985B2E000F622A /* MartCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7172283524985B2E000F622A /* MartCalculator.xcdatamodeld */; };
 		7172283924985B2F000F622A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7172283824985B2F000F622A /* Assets.xcassets */; };
 		7172283C24985B2F000F622A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7172283A24985B2F000F622A /* LaunchScreen.storyboard */; };
+		717228452499CA51000F622A /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228432499CA51000F622A /* ItemTableViewCell.swift */; };
+		717228462499CA51000F622A /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 717228442499CA51000F622A /* ItemTableViewCell.xib */; };
+		717228482499D6BD000F622A /* ViewController + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228472499D6BD000F622A /* ViewController + TableView.swift */; };
+		7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228492499DC6C000F622A /* CoreDataManager.swift */; };
+		7172284C2499DCCE000F622A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284B2499DCCE000F622A /* Const.swift */; };
+		717228502499DE9D000F622A /* URL + storeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284F2499DE9D000F622A /* URL + storeURL.swift */; };
+		717228522499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228512499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift */; };
+		717228542499EF0F000F622A /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228532499EF0F000F622A /* UserSetting.swift */; };
+		71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,16 @@
 		7172283824985B2F000F622A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7172283B24985B2F000F622A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7172283D24985B2F000F622A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717228432499CA51000F622A /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		717228442499CA51000F622A /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		717228472499D6BD000F622A /* ViewController + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + TableView.swift"; sourceTree = "<group>"; };
+		717228492499DC6C000F622A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7172284B2499DCCE000F622A /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		7172284D2499DCF4000F622A /* MartCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartCalculator.entitlements; sourceTree = "<group>"; };
+		7172284F2499DE9D000F622A /* URL + storeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + storeURL.swift"; sourceTree = "<group>"; };
+		717228512499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
+		717228532499EF0F000F622A /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
+		71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +77,34 @@
 		7172282B24985B2E000F622A /* MartCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				7172284E2499DE8F000F622A /* extentions */,
+				7172284D2499DCF4000F622A /* MartCalculator.entitlements */,
 				7172282C24985B2E000F622A /* AppDelegate.swift */,
 				7172282E24985B2E000F622A /* SceneDelegate.swift */,
 				7172283024985B2E000F622A /* ViewController.swift */,
+				71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */,
 				7172283224985B2E000F622A /* Main.storyboard */,
 				7172283824985B2F000F622A /* Assets.xcassets */,
 				7172283A24985B2F000F622A /* LaunchScreen.storyboard */,
 				7172283D24985B2F000F622A /* Info.plist */,
 				7172283524985B2E000F622A /* MartCalculator.xcdatamodeld */,
+				717228432499CA51000F622A /* ItemTableViewCell.swift */,
+				717228442499CA51000F622A /* ItemTableViewCell.xib */,
+				717228472499D6BD000F622A /* ViewController + TableView.swift */,
+				717228492499DC6C000F622A /* CoreDataManager.swift */,
+				7172284B2499DCCE000F622A /* Const.swift */,
+				717228512499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift */,
+				717228532499EF0F000F622A /* UserSetting.swift */,
 			);
 			path = MartCalculator;
+			sourceTree = "<group>";
+		};
+		7172284E2499DE8F000F622A /* extentions */ = {
+			isa = PBXGroup;
+			children = (
+				7172284F2499DE9D000F622A /* URL + storeURL.swift */,
+			);
+			path = extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717228462499CA51000F622A /* ItemTableViewCell.xib in Resources */,
 				7172283C24985B2F000F622A /* LaunchScreen.storyboard in Resources */,
 				7172283924985B2F000F622A /* Assets.xcassets in Resources */,
 				7172283424985B2E000F622A /* Main.storyboard in Resources */,
@@ -143,8 +181,16 @@
 			files = (
 				7172283124985B2E000F622A /* ViewController.swift in Sources */,
 				7172283724985B2E000F622A /* MartCalculator.xcdatamodeld in Sources */,
+				717228452499CA51000F622A /* ItemTableViewCell.swift in Sources */,
+				717228502499DE9D000F622A /* URL + storeURL.swift in Sources */,
+				717228542499EF0F000F622A /* UserSetting.swift in Sources */,
 				7172282D24985B2E000F622A /* AppDelegate.swift in Sources */,
+				717228482499D6BD000F622A /* ViewController + TableView.swift in Sources */,
+				7172284C2499DCCE000F622A /* Const.swift in Sources */,
+				7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */,
+				71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */,
 				7172282F24985B2E000F622A /* SceneDelegate.swift in Sources */,
+				717228522499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MartCalculator/MartCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72J2BT27K5;
 				INFOPLIST_FILE = MartCalculator/Info.plist;
@@ -306,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MartCalculator/MartCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72J2BT27K5;
 				INFOPLIST_FILE = MartCalculator/Info.plist;
