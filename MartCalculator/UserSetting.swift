@@ -9,5 +9,5 @@
 import Foundation
 
 class UserSetting {
-    static var currency = "₩"
+    //static var currency = "₩"
 }

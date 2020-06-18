@@ -30,10 +30,17 @@ class ItemTableViewCell: UITableViewCell {
                 countLbl.text = "\(item.count)개"
                 allPriceLbl.text = allPriceStr
             } else {
+                let currencyFormatter = NumberFormatter()
+                currencyFormatter.usesGroupingSeparator = true
+                currencyFormatter.numberStyle = .currency
+                currencyFormatter.locale = Locale.current
+                let priceStr = currencyFormatter.string(for: 0)
+                let allPriceStr = currencyFormatter.string(for: 0)
+                
                 nameLbl.text = ""
-                priceLbl.text = "0\(UserSetting.currency)"
+                priceLbl.text = priceStr
                 countLbl.text = "1개"
-                allPriceLbl.text = "0\(UserSetting.currency)"
+                allPriceLbl.text = allPriceStr
             }
         }
     }

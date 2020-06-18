@@ -192,7 +192,7 @@ class ViewController: UIViewController {
                             }
                         }
                     }
-                } else {
+                } else if selectType == .count {
                     if count > 0 {
                         for _ in 0..<str.count {
                             if case let (result, overflow) = count.multipliedReportingOverflow(by: 10), !overflow {
@@ -220,7 +220,7 @@ class ViewController: UIViewController {
                         price *= 10
                         price += Float(str)!
                     }
-                } else {
+                } else if selectType == .count {
                     if case let (result, overflow) = count.multipliedReportingOverflow(by: 10), !overflow {
                         count = result
                         count += Int64(str)! //TODO
