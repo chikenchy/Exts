@@ -42,7 +42,8 @@ enum BtnType: Equatable {
     case count
     case name
     case dot
-    case add
+    case upsert
+    case delete
 }
 
 enum SelectType: Equatable {
@@ -56,22 +57,16 @@ class ViewController: UIViewController {
     var selectedItemIndexPath: IndexPath? {
         didSet {
             if selectedItemIndexPath == nil {
-                addBtn.setTitle("추가", for: .normal)
+                addBtn.setTitle("✓", for: .normal)
             } else {
-                addBtn.setTitle("갱신", for: .normal)
+                addBtn.setTitle("☑︎", for: .normal)
             }
-        }
-    }
-    
-    var dotIdx:Int = 0 {
-        didSet {
-            updateDotBtn()
         }
     }
     
     private func updateDotBtn() {
         if selectType == .price {
-            dotBtn.isEnabled = dotIdx < 1
+            dotBtn.isEnabled = priceLbl.text?.contains(".") ?? true
         } else {
             dotBtn.isEnabled = false
         }
@@ -106,15 +101,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var priceLbl: UITextField!
     @IBOutlet weak var countLbl: UITextField!
     
-    
     var name: String? {
-        didSet {
-            nameLbl.text = name
+        get {
+            nameLbl.text
+        }
+        set {
+            nameLbl.text = newValue
         }
     }
     
-    var price: Float = 0 {
+    var price: String = "0" {
         didSet {
+            print(price)
+            
 //            if price.truncatingRemainder(dividingBy: 1) == 0 {
 //                priceLbl.text = String(format: "%.0f\(UserSetting.currency)", price)
 //            } else {
@@ -124,28 +123,32 @@ class ViewController: UIViewController {
             currencyFormatter.usesGroupingSeparator = true
             currencyFormatter.numberStyle = .currency
             currencyFormatter.locale = Locale.current
-            priceLbl.text = currencyFormatter.string(for: price)
+            
+            if let priceInt = Int64(price) {
+                priceLbl.text = currencyFormatter.string(for: priceInt)
+            } else {
+                price = "0"
+                priceLbl.text = currencyFormatter.string(for: Int64(price))
+            }
         }
     }
-    var count: Int64 = 1 {
+    var count: String = "1" {
         didSet {
-            countLbl.text = "\(count)개"
+            if Int64(count) == nil{
+                count = "0"
+            }
+            countLbl.text = "\(Int64(count)!)"
         }
     }
     
-//    @IBAction func onTouchUpInside_price(_ sender: UITextField) {
-//        guard selectType != .price else {
-//            return
-//        }
-//        selectType = .price
-//    }
-//
-//    @IBAction func onTouchUpInside_count(_ sender: UITextField) {
-//        guard selectType != .price else {
-//            return
-//        }
-//        selectType = .price
-//    }
+    func allClear() {
+        let vc = UIAlertController(title: nil, message: "전체 삭제하시겠습니까?", preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+            self.clearAll()
+        }))
+        vc.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        present(vc, animated: true, completion: nil)
+    }
     
     @IBAction func onTouchUpInside_Btn(_ sender: UIButton) {
         if nameLbl.isEditing {
@@ -159,18 +162,20 @@ class ViewController: UIViewController {
             btnType = .digit(str: str)
         case ".":
             btnType = .dot
+        case "Del":
+            btnType = .delete
         case "C":
             btnType = .clear
         case "AC":
             btnType = .allClear
-        case "가격":
+        case "$":
             btnType = .price
-        case "갯수":
+        case "×":
             btnType = .count
-        case "제품명":
+        case "✎":
             btnType = .name
-        case "추가", "갱신":
-            btnType = .add
+        case "✓", "☑︎":
+            btnType = .upsert
         default:
             fatalError()
         }
@@ -180,78 +185,57 @@ class ViewController: UIViewController {
             switch str {
             case "0", "00", "000":
                 if selectType == .price {
-                    if dotIdx > 0 {
-                        for _ in 0..<str.count {
-                            dotIdx += 1
-                        }
-
+                    if price.isEmpty {
+                        price += "0"
+                    } else if price == "0" {
+                        break
                     } else {
-                        if price > 0 {
-                            for _ in 0..<str.count {
-                                price *= 10
-                            }
-                        }
+                        price += str
                     }
                 } else if selectType == .count {
-                    if count > 0 {
-                        for _ in 0..<str.count {
-                            if case let (result, overflow) = count.multipliedReportingOverflow(by: 10), !overflow {
-                                count = result
-                            } else {
-                                print("overflow")
-                                break
-                            }
-                        }
+                    if count.isEmpty {
+                        count += "0"
+                    } else if count == "0" {
+                        break
+                    } else {
+                        count += str
                     }
                 }
             case "1", "2", "3", "4", "5", "6", "7", "8", "9":
                 if selectType == .price {
-                    if dotIdx > 0 {
-                        var addValue = Float(str)!
-                        for _ in 0..<dotIdx {
-                            addValue /= 10
-                        }
-                        
-                        price += addValue
-                        
-                        dotIdx += 1
-                        
-                    } else {
-                        price *= 10
-                        price += Float(str)!
-                    }
+                    price += str
                 } else if selectType == .count {
-                    if case let (result, overflow) = count.multipliedReportingOverflow(by: 10), !overflow {
-                        count = result
-                        count += Int64(str)! //TODO
-                    } else {
-                        print("overflow")
-                    }
+                    count += str
                 }
             default: break
             }
         case .dot:
-            dotIdx = 1
+            if selectType == .price {
+                price += "."
+            }
         case .allClear:
-            let vc = UIAlertController(title: nil, message: "전체 삭제하시겠습니까?", preferredStyle: .alert)
-            vc.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
-                self.clearAll()
-            }))
-            vc.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
-            present(vc, animated: true, completion: nil)
+            allClear()
         case .clear:
             clearCurrent()
         case .price, .count, .name:
             switchsPriceOrCountBtn()
-        case .add:
-            guard price > 0 else {
+        case .upsert:
+            if let priceFloat = Float(price) {
+                if priceFloat == 0 && name?.count ?? 0 < 1 {
+                    nameLbl.becomeFirstResponder()
+                    return
+                }
+            }            
+
+            guard let countInt = Int64(count), countInt > 0 else {
+                selectType = .count
                 return
             }
             
             if let selectedItemIndexPath = selectedItemIndexPath {
                 let item = calculator.items[selectedItemIndexPath.row]
-                item.count = Int64(count)
-                item.price = price
+                item.count = Int64(count)!
+                item.price = Float(price)!
                 item.name = nameLbl.text
                 item.createdAt = Date()
                 
@@ -264,8 +248,8 @@ class ViewController: UIViewController {
                 tableView.endUpdates()
             } else {
                 let item = MartItem(context: CoreDataManager.shared.context)
-                item.count = Int64(count)
-                item.price = price
+                item.count = Int64(count)!
+                item.price = Float(price)!
                 item.name = nameLbl.text
                 item.createdAt = Date()
                 calculator.add(item: item)
@@ -282,14 +266,25 @@ class ViewController: UIViewController {
             clearCurrent()
             
             selectType = .price
+        case .delete:
+            switch selectType {
+            case .count:
+                if count.count > 0 {
+                    count.removeLast()
+                }
+            case .price:
+                if price.count > 0 {
+                    price.removeLast()
+                }
+            default: break
+            }
         }
     }
     
     private func clearCurrent() {
-        dotIdx = 0
+        price = "0"
+        count = "1"
         name = nil
-        price = 0
-        count = 1
     }
     
     private func clearAll() {
@@ -305,37 +300,53 @@ class ViewController: UIViewController {
     var selectType: SelectType? {
         didSet {
             if selectType == .price {
-                price = 0
+                price = ""
                 
-                priceOrCountBtn.setTitle("갯수", for: .normal)
+                priceOrCountBtn.setTitle("×", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
                 
                 nameLbl.backgroundColor = .clear
-                priceLbl.backgroundColor = .systemBlue
+                priceLbl.backgroundColor = .systemFill
                 countLbl.backgroundColor = .clear
+                
+//                nameLbl.textColor = .black
+//                priceLbl.textColor = .white
+//                countLbl.textColor = .black
             } else if selectType == .count {
-                count = 0
+                count = ""
                 
-                priceOrCountBtn.setTitle("제품명", for: .normal)
+                priceOrCountBtn.setTitle("✎", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
                 
                 nameLbl.backgroundColor = .clear
                 priceLbl.backgroundColor = .clear
-                countLbl.backgroundColor = .systemBlue
+                countLbl.backgroundColor = .systemFill
+                
+//                nameLbl.textColor = .black
+//                priceLbl.textColor = .black
+//                countLbl.textColor = .white
             } else if selectType == .name {
-                priceOrCountBtn.setTitle("가격", for: .normal)
+                priceOrCountBtn.setTitle("$", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
                 
-                nameLbl.backgroundColor = .systemBlue
+                nameLbl.backgroundColor = .systemFill
                 priceLbl.backgroundColor = .clear
                 countLbl.backgroundColor = .clear
+                
+//                nameLbl.textColor = .white
+//                priceLbl.textColor = .black
+//                countLbl.textColor = .black
             } else {
-                priceOrCountBtn.setTitle("가격", for: .normal)
+                priceOrCountBtn.setTitle("$", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
                 
                 nameLbl.backgroundColor = .clear
                 priceLbl.backgroundColor = .clear
                 countLbl.backgroundColor = .clear
+                
+//                nameLbl.textColor = .black
+//                priceLbl.textColor = .black
+//                countLbl.textColor = .black
             }
             updateDotBtn()
         }
@@ -366,6 +377,7 @@ class ViewController: UIViewController {
         
         clearCurrent()
         selectType = .price
+        selectedItemIndexPath = nil
         
         digit0.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         digit000.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)

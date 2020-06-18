@@ -27,8 +27,12 @@ class ItemTableViewCell: UITableViewCell {
                 
                 nameLbl.text = item.name
                 priceLbl.text = priceStr
-                countLbl.text = "\(item.count)개"
+                countLbl.text = "× \(item.count)"
                 allPriceLbl.text = allPriceStr
+                
+                if item.price <= 0 {
+                    backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0.02)
+                }
             } else {
                 let currencyFormatter = NumberFormatter()
                 currencyFormatter.usesGroupingSeparator = true
@@ -39,8 +43,10 @@ class ItemTableViewCell: UITableViewCell {
                 
                 nameLbl.text = ""
                 priceLbl.text = priceStr
-                countLbl.text = "1개"
+                countLbl.text = "1"
                 allPriceLbl.text = allPriceStr
+                
+                backgroundColor = .clear
             }
         }
     }

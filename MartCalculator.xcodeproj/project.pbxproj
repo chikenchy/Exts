@@ -22,6 +22,7 @@
 		717228502499DE9D000F622A /* URL + storeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284F2499DE9D000F622A /* URL + storeURL.swift */; };
 		717228542499EF0F000F622A /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228532499EF0F000F622A /* UserSetting.swift */; };
 		71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */; };
+		7172285D249B1DDB000F622A /* UIView + Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172285C249B1DDB000F622A /* UIView + Designable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		7172284F2499DE9D000F622A /* URL + storeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + storeURL.swift"; sourceTree = "<group>"; };
 		717228532499EF0F000F622A /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		7172285C249B1DDB000F622A /* UIView + Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView + Designable.swift"; path = "MartCalculator/Extentions/UIView + Designable.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				7172284F2499DE9D000F622A /* URL + storeURL.swift */,
+				7172285C249B1DDB000F622A /* UIView + Designable.swift */,
 			);
 			path = extentions;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				717228482499D6BD000F622A /* ViewController + TableView.swift in Sources */,
 				7172284C2499DCCE000F622A /* Const.swift in Sources */,
 				7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */,
+				7172285D249B1DDB000F622A /* UIView + Designable.swift in Sources */,
 				71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */,
 				7172282F24985B2E000F622A /* SceneDelegate.swift in Sources */,
 			);
