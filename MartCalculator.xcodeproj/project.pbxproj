@@ -20,7 +20,6 @@
 		7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228492499DC6C000F622A /* CoreDataManager.swift */; };
 		7172284C2499DCCE000F622A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284B2499DCCE000F622A /* Const.swift */; };
 		717228502499DE9D000F622A /* URL + storeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284F2499DE9D000F622A /* URL + storeURL.swift */; };
-		717228522499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228512499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift */; };
 		717228542499EF0F000F622A /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228532499EF0F000F622A /* UserSetting.swift */; };
 		71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -42,7 +41,6 @@
 		7172284B2499DCCE000F622A /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		7172284D2499DCF4000F622A /* MartCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartCalculator.entitlements; sourceTree = "<group>"; };
 		7172284F2499DE9D000F622A /* URL + storeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + storeURL.swift"; sourceTree = "<group>"; };
-		717228512499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
 		717228532499EF0F000F622A /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +91,6 @@
 				717228472499D6BD000F622A /* ViewController + TableView.swift */,
 				717228492499DC6C000F622A /* CoreDataManager.swift */,
 				7172284B2499DCCE000F622A /* Const.swift */,
-				717228512499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift */,
 				717228532499EF0F000F622A /* UserSetting.swift */,
 			);
 			path = MartCalculator;
@@ -190,7 +187,6 @@
 				7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */,
 				71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */,
 				7172282F24985B2E000F622A /* SceneDelegate.swift in Sources */,
-				717228522499E330000F622A /* ViewController + NSFetchedResultsControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

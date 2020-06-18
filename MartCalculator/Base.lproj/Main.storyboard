@@ -32,20 +32,20 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Wk-1R-HCr">
                                                         <rect key="frame" x="8" y="0.0" width="398" height="50"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제품명" textAlignment="justified" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="mXx-5f-cu5" userLabel="nameLbl">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="가격" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4ck-67-c9u" userLabel="priceTF">
                                                                 <rect key="frame" x="0.0" y="0.0" width="126" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                                <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="가격" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4ck-67-c9u" userLabel="priceLbl">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="갯수" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="121-UQ-TnM" userLabel="countTF">
                                                                 <rect key="frame" x="136" y="0.0" width="126" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="갯수" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="121-UQ-TnM" userLabel="countLbl">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제품명" textAlignment="justified" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="mXx-5f-cu5" userLabel="nameTF">
                                                                 <rect key="frame" x="272" y="0.0" width="126" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>

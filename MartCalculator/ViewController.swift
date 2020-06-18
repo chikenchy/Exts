@@ -40,11 +40,28 @@ enum BtnType: Equatable {
     case clear
     case price
     case count
+    case name
     case dot
     case add
 }
 
+enum SelectType: Equatable {
+    case name
+    case price
+    case count
+}
+
 class ViewController: UIViewController {
+    
+    var selectedItemIndexPath: IndexPath? {
+        didSet {
+            if selectedItemIndexPath == nil {
+                addBtn.setTitle("추가", for: .normal)
+            } else {
+                addBtn.setTitle("갱신", for: .normal)
+            }
+        }
+    }
     
     var dotIdx:Int = 0 {
         didSet {
@@ -53,7 +70,7 @@ class ViewController: UIViewController {
     }
     
     private func updateDotBtn() {
-        if switchsPriceOrCountType == .price {
+        if selectType == .price {
             dotBtn.isEnabled = dotIdx < 1
         } else {
             dotBtn.isEnabled = false
@@ -90,13 +107,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var countLbl: UITextField!
     
     
-    private var name: String? {
+    var name: String? {
         didSet {
             nameLbl.text = name
         }
     }
     
-    private var price: Float = 0 {
+    var price: Float = 0 {
         didSet {
 //            if price.truncatingRemainder(dividingBy: 1) == 0 {
 //                priceLbl.text = String(format: "%.0f\(UserSetting.currency)", price)
@@ -110,12 +127,25 @@ class ViewController: UIViewController {
             priceLbl.text = currencyFormatter.string(for: price)
         }
     }
-    private var count: Int = 1 {
+    var count: Int64 = 1 {
         didSet {
             countLbl.text = "\(count)개"
         }
     }
     
+//    @IBAction func onTouchUpInside_price(_ sender: UITextField) {
+//        guard selectType != .price else {
+//            return
+//        }
+//        selectType = .price
+//    }
+//
+//    @IBAction func onTouchUpInside_count(_ sender: UITextField) {
+//        guard selectType != .price else {
+//            return
+//        }
+//        selectType = .price
+//    }
     
     @IBAction func onTouchUpInside_Btn(_ sender: UIButton) {
         if nameLbl.isEditing {
@@ -137,7 +167,9 @@ class ViewController: UIViewController {
             btnType = .price
         case "갯수":
             btnType = .count
-        case "추가":
+        case "제품명":
+            btnType = .name
+        case "추가", "갱신":
             btnType = .add
         default:
             fatalError()
@@ -147,7 +179,7 @@ class ViewController: UIViewController {
         case .digit(let str):
             switch str {
             case "0", "00", "000":
-                if switchsPriceOrCountType == .price {
+                if selectType == .price {
                     if dotIdx > 0 {
                         for _ in 0..<str.count {
                             dotIdx += 1
@@ -173,7 +205,7 @@ class ViewController: UIViewController {
                     }
                 }
             case "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                if switchsPriceOrCountType == .price {
+                if selectType == .price {
                     if dotIdx > 0 {
                         var addValue = Float(str)!
                         for _ in 0..<dotIdx {
@@ -191,7 +223,7 @@ class ViewController: UIViewController {
                 } else {
                     if case let (result, overflow) = count.multipliedReportingOverflow(by: 10), !overflow {
                         count = result
-                        count += Int(str)! //TODO
+                        count += Int64(str)! //TODO
                     } else {
                         print("overflow")
                     }
@@ -209,29 +241,47 @@ class ViewController: UIViewController {
             present(vc, animated: true, completion: nil)
         case .clear:
             clearCurrent()
-        case .price, .count:
+        case .price, .count, .name:
             switchsPriceOrCountBtn()
         case .add:
             guard price > 0 else {
                 return
             }
-            let item = MartItem(context: CoreDataManager.shared.context)
-            item.count = Int64(count)
-            item.price = price
-            item.name = nameLbl.text
-            item.createdAt = Date()
-            calculator.add(item: item)
+            
+            if let selectedItemIndexPath = selectedItemIndexPath {
+                let item = calculator.items[selectedItemIndexPath.row]
+                item.count = Int64(count)
+                item.price = price
+                item.name = nameLbl.text
+                item.createdAt = Date()
+                
+                self.selectedItemIndexPath = nil
+                
+                tableView.beginUpdates()
+                tableView.reloadRows(at: [ selectedItemIndexPath ], with: .automatic)
+                tableView.footerView(forSection: 0)!.textLabel!.text = footerString()
+                tableView.footerView(forSection: 0)!.textLabel!.sizeToFit()
+                tableView.endUpdates()
+            } else {
+                let item = MartItem(context: CoreDataManager.shared.context)
+                item.count = Int64(count)
+                item.price = price
+                item.name = nameLbl.text
+                item.createdAt = Date()
+                calculator.add(item: item)
+                
+                tableView.beginUpdates()
+                tableView.insertRows(at: [IndexPath(row: calculator.items.count-1, section: 0)], with: .automatic)
+                tableView.footerView(forSection: 0)!.textLabel!.text = footerString()
+                tableView.footerView(forSection: 0)!.textLabel!.sizeToFit()
+                tableView.endUpdates()
+                
+                tableView.scrollToRow(at: IndexPath(row: calculator.items.count-1, section: 0), at: UITableView.ScrollPosition(rawValue: 0)!, animated: true)
+            }
+            
             clearCurrent()
             
-            tableView.beginUpdates()
-            tableView.insertRows(at: [IndexPath(row: calculator.items.count-1, section: 0)], with: .automatic)
-            tableView.footerView(forSection: 0)!.textLabel!.text = footerString()
-            tableView.footerView(forSection: 0)!.textLabel!.sizeToFit()
-            tableView.endUpdates()
-            
-            tableView.scrollToRow(at: IndexPath(row: calculator.items.count-1, section: 0), at: UITableView.ScrollPosition(rawValue: 0)!, animated: true)
-            
-            switchsPriceOrCountType = .price
+            selectType = .price
         }
     }
     
@@ -246,29 +296,62 @@ class ViewController: UIViewController {
         clearCurrent()
         calculator.clear()
         tableView.reloadData()
+        if let selectedItemIndexPath = selectedItemIndexPath {
+            tableView.deselectRow(at: selectedItemIndexPath, animated: false)
+            self.selectedItemIndexPath = nil
+        }
     }
     
-    var switchsPriceOrCountType = BtnType.price {
+    var selectType: SelectType? {
         didSet {
-            if switchsPriceOrCountType == .price {
+            if selectType == .price {
+                price = 0
+                
                 priceOrCountBtn.setTitle("갯수", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
+                
+                nameLbl.backgroundColor = .clear
+                priceLbl.backgroundColor = .systemBlue
+                countLbl.backgroundColor = .clear
+            } else if selectType == .count {
+                count = 0
+                
+                priceOrCountBtn.setTitle("제품명", for: .normal)
+                priceOrCountBtn.titleLabel!.sizeToFit()
+                
+                nameLbl.backgroundColor = .clear
+                priceLbl.backgroundColor = .clear
+                countLbl.backgroundColor = .systemBlue
+            } else if selectType == .name {
+                priceOrCountBtn.setTitle("가격", for: .normal)
+                priceOrCountBtn.titleLabel!.sizeToFit()
+                
+                nameLbl.backgroundColor = .systemBlue
+                priceLbl.backgroundColor = .clear
+                countLbl.backgroundColor = .clear
             } else {
                 priceOrCountBtn.setTitle("가격", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
+                
+                nameLbl.backgroundColor = .clear
+                priceLbl.backgroundColor = .clear
+                countLbl.backgroundColor = .clear
             }
             updateDotBtn()
         }
     }
     
     private func switchsPriceOrCountBtn() {
-        if switchsPriceOrCountType == .price {
-            switchsPriceOrCountType = .count
-        } else {
-            switchsPriceOrCountType = .price
+        switch selectType {
+        case .price:
+            selectType = .count
+        case .count:
+            selectType = .name
+            nameLbl.becomeFirstResponder()
+        case .name, .none:
+            selectType = .price
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -277,10 +360,12 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         registerCells()
         
+        priceLbl.delegate = self
+        countLbl.delegate = self
         nameLbl.delegate = self
         
         clearCurrent()
-        switchsPriceOrCountType = .price
+        selectType = .price
         
         digit0.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         digit000.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)

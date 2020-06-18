@@ -49,24 +49,26 @@ extension ViewController: UITableViewDataSource {
         return true
     }
     
-//    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-//        tableView.beginUpdates()
-//    }
-//
-//    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-//        tableView.endUpdates()
-//    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             CoreDataManager.shared.context.delete(calculator.items[indexPath.row])
             calculator.items.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [ indexPath ], with: .automatic)
-            //tableView.reloadData()
+            
+            tableView.footerView(forSection: 0)!.textLabel!.text = footerString()
+            tableView.footerView(forSection: 0)!.textLabel!.sizeToFit()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedItemIndexPath = indexPath
+        let item = calculator.items[indexPath.row]
+        name = item.name
+        price = item.price
+        count = item.count
     }
     
 }
