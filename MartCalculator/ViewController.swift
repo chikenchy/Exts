@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var digit0: UIButton!
-    @IBOutlet weak var digit000: UIButton!
+    @IBOutlet weak var digit00: UIButton!
     @IBOutlet weak var dotBtn: UIButton!
     @IBOutlet weak var addBtn: UIButton!
     
@@ -380,7 +380,7 @@ class ViewController: UIViewController {
         selectedItemIndexPath = nil
         
         digit0.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
-        digit000.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
+        digit00.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         dotBtn.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         addBtn.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         digit1.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
