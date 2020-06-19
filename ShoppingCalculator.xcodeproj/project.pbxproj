@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E8FCC89C8ED8E197E10A81F /* Pods_ShoppingCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9B3DFE99196667A6753643 /* Pods_ShoppingCalculator.framework */; };
 		715571F4249C7F9900BAD41E /* URL + storeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284F2499DE9D000F622A /* URL + storeURL.swift */; };
 		715571F6249C7FB700BAD41E /* UIView + Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715571F5249C7FB700BAD41E /* UIView + Designable.swift */; };
 		7172282D24985B2E000F622A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172282C24985B2E000F622A /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A9B3DFE99196667A6753643 /* Pods_ShoppingCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		715571F2249C7F4100BAD41E /* ShoppingCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShoppingCalculator.entitlements; sourceTree = "<group>"; };
 		715571F5249C7FB700BAD41E /* UIView + Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView + Designable.swift"; path = "ShoppingCalculator/Extentions/UIView + Designable.swift"; sourceTree = SOURCE_ROOT; };
 		7172282924985B2E000F622A /* ShoppingCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +47,8 @@
 		7172284F2499DE9D000F622A /* URL + storeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + storeURL.swift"; sourceTree = "<group>"; };
 		717228532499EF0F000F622A /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,17 +56,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E8FCC89C8ED8E197E10A81F /* Pods_ShoppingCalculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01A3C1129458F019FFDD4306 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */,
+				AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7172282024985B2E000F622A = {
 			isa = PBXGroup;
 			children = (
 				7172282B24985B2E000F622A /* ShoppingCalculator */,
 				7172282A24985B2E000F622A /* Products */,
+				01A3C1129458F019FFDD4306 /* Pods */,
+				DB83329F9284A5B71FA255DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +124,14 @@
 			path = extentions;
 			sourceTree = "<group>";
 		};
+		DB83329F9284A5B71FA255DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A9B3DFE99196667A6753643 /* Pods_ShoppingCalculator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,9 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7172284024985B2F000F622A /* Build configuration list for PBXNativeTarget "ShoppingCalculator" */;
 			buildPhases = (
+				7A70C61A933414B089B9CD39 /* [CP] Check Pods Manifest.lock */,
 				7172282524985B2E000F622A /* Sources */,
 				7172282624985B2E000F622A /* Frameworks */,
 				7172282724985B2E000F622A /* Resources */,
+				46D65BA170198799794D636C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +200,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46D65BA170198799794D636C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A70C61A933414B089B9CD39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShoppingCalculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7172282524985B2E000F622A /* Sources */ = {
@@ -332,12 +401,14 @@
 		};
 		7172284124985B2F000F622A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShoppingCalculator/ShoppingCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72J2BT27K5;
 				INFOPLIST_FILE = "$(SRCROOT)/ShoppingCalculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -351,12 +422,14 @@
 		};
 		7172284224985B2F000F622A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShoppingCalculator/ShoppingCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72J2BT27K5;
 				INFOPLIST_FILE = "$(SRCROOT)/ShoppingCalculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
