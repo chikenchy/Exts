@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class Calculator {
     
@@ -54,6 +55,8 @@ enum SelectType: Equatable {
 
 class ViewController: UIViewController {
     
+//    override var prefersStatusBarHidden: Bool { true }
+    
     var selectedItemIndexPath: IndexPath? {
         didSet {
             if selectedItemIndexPath == nil {
@@ -75,6 +78,7 @@ class ViewController: UIViewController {
     
     let calculator = Calculator()
     
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var digit0: UIButton!
@@ -395,7 +399,52 @@ class ViewController: UIViewController {
         digit9.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         clearBtn.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         allClearBtn.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
+
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        
+        if true {
+            let req = GADRequest()
+            bannerView.load(req)
+            bannerView.isHidden = true
+        }
+    }
+}
+
+extension ViewController: GADBannerViewDelegate {
+    
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("adViewDidReceiveAd")
+        bannerView.isHidden = false
+    }
+
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        bannerView.isHidden = true
+    }
+
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("adViewWillPresentScreen")
+    }
+
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("adViewWillDismissScreen")
+    }
+
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("adViewDidDismissScreen")
+    }
+
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+      print("adViewWillLeaveApplication")
     }
     
 }
-

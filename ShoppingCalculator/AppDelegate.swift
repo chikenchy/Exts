@@ -7,13 +7,19 @@
 //
 
 import UIKit
-import CoreData
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        #if DEBUG
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["00008030-0016690A3423802E"]
+        #endif
+
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         return true
     }
 

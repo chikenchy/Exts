@@ -10,21 +10,32 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MartCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ShoppingCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sFf-7X-zLK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSu-gN-GmR" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="33Y-l7-nFL"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoloadEnabled" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-9095645775931715/7613766216"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xpe-xp-C7A" userLabel="Item TableView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="502"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="408"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <sections/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isR-Hk-J7d" userLabel="Calculator View">
-                                        <rect key="frame" x="0.0" y="502" width="414" height="360"/>
+                                        <rect key="frame" x="0.0" y="458" width="414" height="360"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HXc-W0-xkv">
                                                 <rect key="frame" x="0.0" y="5" width="414" height="350"/>
@@ -55,7 +66,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-WC-ll7">
                                                         <rect key="frame" x="8" y="55" width="398" height="70"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD9-6U-Xil" userLabel="Digit7 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD9-6U-Xil" userLabel="Digit7 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -86,7 +97,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-YH-Kci" userLabel="Digit8 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-YH-Kci" userLabel="Digit8 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="102" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -117,7 +128,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIP-8s-eQ6" userLabel="Digit9 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIP-8s-eQ6" userLabel="Digit9 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="204" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -148,7 +159,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW6-Qg-VM8" userLabel="clear Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW6-Qg-VM8" userLabel="clear Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="306" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -187,7 +198,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Vt-HO-vPe">
                                                         <rect key="frame" x="8" y="130" width="398" height="70"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F63-f7-q2F" userLabel="Digit4 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F63-f7-q2F" userLabel="Digit4 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -218,7 +229,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwE-pT-wuH" userLabel="Digit5 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwE-pT-wuH" userLabel="Digit5 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="102" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -249,7 +260,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR8-xu-Mil" userLabel="Digit6 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR8-xu-Mil" userLabel="Digit6 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="204" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -280,7 +291,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07R-7g-xu9" userLabel="del Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07R-7g-xu9" userLabel="del Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="306" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -319,7 +330,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tK8-kp-oEB">
                                                         <rect key="frame" x="8" y="205" width="398" height="70"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKn-qD-8Me" userLabel="Digit1 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKn-qD-8Me" userLabel="Digit1 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -350,7 +361,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-pA-r6b" userLabel="Digit2 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-pA-r6b" userLabel="Digit2 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="102" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -381,7 +392,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kx9-UA-Ptb" userLabel="Digit3 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kx9-UA-Ptb" userLabel="Digit3 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="204" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -412,7 +423,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KN4-yX-1Lr" userLabel="switch Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KN4-yX-1Lr" userLabel="switch Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="306" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -451,7 +462,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8JE-Ic-7Tc">
                                                         <rect key="frame" x="8" y="280" width="398" height="70"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzZ-fZ-RG7" userLabel="Digit0 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzZ-fZ-RG7" userLabel="Digit0 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -482,7 +493,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyw-XN-Gi5" userLabel="Digit00 Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyw-XN-Gi5" userLabel="Digit00 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="102" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -513,7 +524,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-79-gV6" userLabel="dot Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-79-gV6" userLabel="dot Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="204" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -544,7 +555,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-fX-3B5" userLabel="add Btn" customClass="DesignableButton" customModule="MartCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-fX-3B5" userLabel="add Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="306" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -610,13 +621,14 @@
                             <constraint firstAttribute="trailing" secondItem="sFf-7X-zLK" secondAttribute="trailing" id="Q02-pq-mCG"/>
                             <constraint firstItem="sFf-7X-zLK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ewM-zD-Ghy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sFf-7X-zLK" secondAttribute="bottom" id="xH8-ph-3Sk"/>
-                            <constraint firstItem="sFf-7X-zLK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zvq-ws-Lwd"/>
+                            <constraint firstItem="sFf-7X-zLK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zvq-ws-Lwd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="addBtn" destination="6aJ-fX-3B5" id="LKD-AR-2AJ"/>
                         <outlet property="allClearBtn" destination="IW6-Qg-VM8" id="3Fe-q3-MQs"/>
+                        <outlet property="bannerView" destination="VSu-gN-GmR" id="9sz-8Q-VO7"/>
                         <outlet property="clearBtn" destination="07R-7g-xu9" id="qFf-Rd-Ian"/>
                         <outlet property="countLbl" destination="121-UQ-TnM" id="3kr-Ka-Tvb"/>
                         <outlet property="digit0" destination="AzZ-fZ-RG7" id="cPq-co-liD"/>
