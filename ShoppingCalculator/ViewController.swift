@@ -128,8 +128,8 @@ class ViewController: UIViewController {
             currencyFormatter.numberStyle = .currency
             currencyFormatter.locale = Locale.current
             
-            if let priceInt = Int64(price) {
-                priceLbl.text = currencyFormatter.string(for: priceInt)
+            if let priceFloat = Float(price) {
+                priceLbl.text = currencyFormatter.string(for: priceFloat)
             } else {
                 price = "0"
                 priceLbl.text = currencyFormatter.string(for: Int64(price))
@@ -240,7 +240,7 @@ class ViewController: UIViewController {
                 let item = calculator.items[selectedItemIndexPath.row]
                 item.count = Int64(count)!
                 item.price = Float(price)!
-                item.name = nameLbl.text
+                item.name = name
                 item.createdAt = Date()
                 
                 self.selectedItemIndexPath = nil

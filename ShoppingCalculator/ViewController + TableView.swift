@@ -64,8 +64,10 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectType = nil
         selectedItemIndexPath = indexPath
         let item = calculator.items[indexPath.row]
+        print(item)
         name = item.name
         price = String(item.price)
         count = String(item.count)
@@ -73,7 +75,8 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         guard let footer = view as? UITableViewHeaderFooterView else { return }
-        footer.textLabel?.textColor = UIColor.blue
+        footer.contentView.backgroundColor = .black
+        footer.textLabel?.textColor = UIColor.white
         footer.textLabel?.font = UIFont.boldSystemFont(ofSize: 28)
         footer.textLabel?.frame = footer.frame
         footer.textLabel?.textAlignment = .natural
