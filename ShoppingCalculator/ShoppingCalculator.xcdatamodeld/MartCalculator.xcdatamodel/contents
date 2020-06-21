@@ -9,7 +9,7 @@
         <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="614061240" usesScalarValueType="NO"/>
         <attribute name="hostoryId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="History" positionX="-54" positionY="-9" width="128" height="73"/>

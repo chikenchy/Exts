@@ -24,6 +24,7 @@ extension ViewController: UITableViewDataSource {
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
         currencyFormatter.locale = Locale.current
+        currencyFormatter.minimumFractionDigits = 0
         return currencyFormatter.string(for: calculator.sum())
     }
     

@@ -22,10 +22,10 @@ class Calculator {
         items.append(item)
     }
     
-    func sum() -> Float {
-        var sum:Float = 0
+    func sum() -> Double {
+        var sum:Double = 0
         for item in items {
-            sum += item.price * Float(item.count)
+            sum += item.price * Double(item.count)
         }
         return sum
     }
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     
     private func updateDotBtn() {
         if selectType == .price {
-            dotBtn.isEnabled = priceLbl.text?.contains(".") ?? true
+            dotBtn.isEnabled = price.contains(".") == false
         } else {
             dotBtn.isEnabled = false
         }
@@ -127,9 +127,13 @@ class ViewController: UIViewController {
             currencyFormatter.usesGroupingSeparator = true
             currencyFormatter.numberStyle = .currency
             currencyFormatter.locale = Locale.current
+            currencyFormatter.maximumSignificantDigits = 100
+
+            let converter = NumberFormatter()
+            converter.decimalSeparator = "."
             
-            if let priceFloat = Float(price) {
-                priceLbl.text = currencyFormatter.string(for: priceFloat)
+            if let number = converter.number(from: price) {
+                priceLbl.text = currencyFormatter.string(for: number)
             } else {
                 price = "0"
                 priceLbl.text = currencyFormatter.string(for: Int64(price))
@@ -141,7 +145,7 @@ class ViewController: UIViewController {
             if Int64(count) == nil{
                 count = "0"
             }
-            countLbl.text = "\(Int64(count)!)"
+            countLbl.text = "×\(Int64(count)!)"
         }
     }
     
@@ -239,7 +243,7 @@ class ViewController: UIViewController {
             if let selectedItemIndexPath = selectedItemIndexPath {
                 let item = calculator.items[selectedItemIndexPath.row]
                 item.count = Int64(count)!
-                item.price = Float(price)!
+                item.price = Double(price)!
                 item.name = name
                 item.createdAt = Date()
                 
@@ -253,7 +257,7 @@ class ViewController: UIViewController {
             } else {
                 let item = MartItem(context: CoreDataManager.shared.context)
                 item.count = Int64(count)!
-                item.price = Float(price)!
+                item.price = Double(price)!
                 item.name = nameLbl.text
                 item.createdAt = Date()
                 calculator.add(item: item)
@@ -312,10 +316,6 @@ class ViewController: UIViewController {
                 nameLbl.backgroundColor = .clear
                 priceLbl.backgroundColor = .systemFill
                 countLbl.backgroundColor = .clear
-                
-//                nameLbl.textColor = .black
-//                priceLbl.textColor = .white
-//                countLbl.textColor = .black
             } else if selectType == .count {
                 count = ""
                 
@@ -325,10 +325,6 @@ class ViewController: UIViewController {
                 nameLbl.backgroundColor = .clear
                 priceLbl.backgroundColor = .clear
                 countLbl.backgroundColor = .systemFill
-                
-//                nameLbl.textColor = .black
-//                priceLbl.textColor = .black
-//                countLbl.textColor = .white
             } else if selectType == .name {
                 priceOrCountBtn.setTitle("$", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
@@ -336,10 +332,6 @@ class ViewController: UIViewController {
                 nameLbl.backgroundColor = .systemFill
                 priceLbl.backgroundColor = .clear
                 countLbl.backgroundColor = .clear
-                
-//                nameLbl.textColor = .white
-//                priceLbl.textColor = .black
-//                countLbl.textColor = .black
             } else {
                 priceOrCountBtn.setTitle("$", for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
@@ -347,10 +339,6 @@ class ViewController: UIViewController {
                 nameLbl.backgroundColor = .clear
                 priceLbl.backgroundColor = .clear
                 countLbl.backgroundColor = .clear
-                
-//                nameLbl.textColor = .black
-//                priceLbl.textColor = .black
-//                countLbl.textColor = .black
             }
             updateDotBtn()
         }

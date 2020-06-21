@@ -18,33 +18,23 @@ class ItemTableViewCell: UITableViewCell {
     var item: MartItem? {
         didSet {
             if let item = item {
-                let currencyFormatter = NumberFormatter()
-                currencyFormatter.usesGroupingSeparator = true
-                currencyFormatter.numberStyle = .currency
-                currencyFormatter.locale = Locale.current
-                let priceStr = currencyFormatter.string(for: item.price)
-                let allPriceStr = currencyFormatter.string(for: item.price * Float(item.count))
-                
+                let allPrice = (Double(item.count) * item.price).removeZerosFromEnd()
+                print("Float(item.count): \(Float(item.count))")
+                print("item.price: \(item.price)")
+                print("allPrice: \(allPrice)")
                 nameLbl.text = item.name
-                priceLbl.text = priceStr
-                countLbl.text = "× \(item.count)"
-                allPriceLbl.text = allPriceStr
+                priceLbl.text = "\(item.price.removeZerosFromEnd())"
+                countLbl.text = "×\(item.count)"
+                allPriceLbl.text = "\(allPrice)"
                 
                 if item.price <= 0 {
                     backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0.02)
                 }
             } else {
-                let currencyFormatter = NumberFormatter()
-                currencyFormatter.usesGroupingSeparator = true
-                currencyFormatter.numberStyle = .currency
-                currencyFormatter.locale = Locale.current
-                let priceStr = currencyFormatter.string(for: 0)
-                let allPriceStr = currencyFormatter.string(for: 0)
-                
                 nameLbl.text = ""
-                priceLbl.text = priceStr
+                priceLbl.text = "0"
                 countLbl.text = "1"
-                allPriceLbl.text = allPriceStr
+                allPriceLbl.text = "x0"
                 
                 backgroundColor = .clear
             }
@@ -66,4 +56,14 @@ class ItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+extension Double {
+    func removeZerosFromEnd() -> String {
+        let formatter = NumberFormatter()
+        let number = NSNumber(value: self)
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 16 //maximum digits in Double after dot (maximum precision)
+        return String(formatter.string(from: number) ?? "")
+    }
 }
