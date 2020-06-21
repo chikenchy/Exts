@@ -116,7 +116,7 @@ class ViewController: UIViewController {
     
     var price: String = "0" {
         didSet {
-            print(price)
+//            print(price)
             
 //            if price.truncatingRemainder(dividingBy: 1) == 0 {
 //                priceLbl.text = String(format: "%.0f\(UserSetting.currency)", price)
@@ -138,6 +138,8 @@ class ViewController: UIViewController {
                 price = "0"
                 priceLbl.text = currencyFormatter.string(for: Int64(price))
             }
+            
+            updateDotBtn()
         }
     }
     var count: String = "1" {

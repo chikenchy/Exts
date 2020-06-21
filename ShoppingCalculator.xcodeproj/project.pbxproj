@@ -10,6 +10,7 @@
 		3E8FCC89C8ED8E197E10A81F /* Pods_ShoppingCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9B3DFE99196667A6753643 /* Pods_ShoppingCalculator.framework */; };
 		715571F4249C7F9900BAD41E /* URL + storeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284F2499DE9D000F622A /* URL + storeURL.swift */; };
 		715571F6249C7FB700BAD41E /* UIView + Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715571F5249C7FB700BAD41E /* UIView + Designable.swift */; };
+		715571F8249F314700BAD41E /* UIButton + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715571F7249F314700BAD41E /* UIButton + UIColor.swift */; };
 		7172282D24985B2E000F622A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172282C24985B2E000F622A /* AppDelegate.swift */; };
 		7172282F24985B2E000F622A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172282E24985B2E000F622A /* SceneDelegate.swift */; };
 		7172283124985B2E000F622A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172283024985B2E000F622A /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		5A9B3DFE99196667A6753643 /* Pods_ShoppingCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		715571F2249C7F4100BAD41E /* ShoppingCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShoppingCalculator.entitlements; sourceTree = "<group>"; };
 		715571F5249C7FB700BAD41E /* UIView + Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView + Designable.swift"; path = "ShoppingCalculator/Extentions/UIView + Designable.swift"; sourceTree = SOURCE_ROOT; };
+		715571F7249F314700BAD41E /* UIButton + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIButton + UIColor.swift"; path = "ShoppingCalculator/Extentions/UIButton + UIColor.swift"; sourceTree = SOURCE_ROOT; };
 		7172282924985B2E000F622A /* ShoppingCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7172282C24985B2E000F622A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7172282E24985B2E000F622A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				715571F5249C7FB700BAD41E /* UIView + Designable.swift */,
 				7172284F2499DE9D000F622A /* URL + storeURL.swift */,
+				715571F7249F314700BAD41E /* UIButton + UIColor.swift */,
 			);
 			path = extentions;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				7172282D24985B2E000F622A /* AppDelegate.swift in Sources */,
 				717228482499D6BD000F622A /* ViewController + TableView.swift in Sources */,
 				7172284C2499DCCE000F622A /* Const.swift in Sources */,
+				715571F8249F314700BAD41E /* UIButton + UIColor.swift in Sources */,
 				7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */,
 				715571F4249C7F9900BAD41E /* URL + storeURL.swift in Sources */,
 				71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */,
