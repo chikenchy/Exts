@@ -25,7 +25,9 @@ class Calculator {
     func sum() -> Double {
         var sum:Decimal = 0
         for item in items {
-            sum += Decimal(item.price) * Decimal(item.count)
+            let add = Decimal(item.price) * Decimal(item.count)
+            print("add: \(add)")
+            sum += add
         }
         
         return Double(truncating: NSDecimalNumber(decimal:sum))
@@ -236,8 +238,8 @@ class ViewController: UIViewController {
                     nameLbl.becomeFirstResponder()
                     return
                 }
-            }            
-
+            }
+            
             guard let countInt = Int64(count), countInt > 0 else {
                 selectType = .count
                 return
@@ -254,8 +256,7 @@ class ViewController: UIViewController {
                 
                 tableView.beginUpdates()
                 tableView.reloadRows(at: [ selectedItemIndexPath ], with: .automatic)
-                tableView.footerView(forSection: 0)!.textLabel!.text = footerString()
-                tableView.footerView(forSection: 0)!.textLabel!.sizeToFit()
+                updateSum()
                 tableView.endUpdates()
             } else {
                 let item = MartItem(context: CoreDataManager.shared.context)
@@ -267,8 +268,7 @@ class ViewController: UIViewController {
                 
                 tableView.beginUpdates()
                 tableView.insertRows(at: [IndexPath(row: calculator.items.count-1, section: 0)], with: .automatic)
-                tableView.footerView(forSection: 0)!.textLabel!.text = footerString()
-                tableView.footerView(forSection: 0)!.textLabel!.sizeToFit()
+                updateSum()
                 tableView.endUpdates()
                 
                 tableView.scrollToRow(at: IndexPath(row: calculator.items.count-1, section: 0), at: UITableView.ScrollPosition(rawValue: 0)!, animated: true)
@@ -436,6 +436,11 @@ extension ViewController: GADBannerViewDelegate {
     /// the App Store), backgrounding the current app.
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
       print("adViewWillLeaveApplication")
+    }
+    
+    func updateSum() {
+        let sumFooterView = tableView.footerView(forSection: 0) as! SumFooterView
+        sumFooterView.sum = calculator.sum()
     }
     
 }

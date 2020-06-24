@@ -13,24 +13,60 @@ extension ViewController: UITableViewDelegate {
 
 }
 
-extension ViewController: UITableViewDataSource {
-    
-    func registerCells() {
-        tableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "item")
+class SumFooterView: UITableViewHeaderFooterView {
+    var sum: Double = 0 {
+        didSet {
+            self.textLabel!.attributedText = footerAttrString()
+            self.textLabel!.sizeToFit()
+        }
     }
     
-    func footerString() -> String? {
+    private func footerAttrString() -> NSAttributedString? {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
         currencyFormatter.locale = Locale.current
         currencyFormatter.maximumSignificantDigits = 100
         
-        return currencyFormatter.string(for: calculator.sum())
+        let str = currencyFormatter.string(for: sum)!
+        
+        let array = sum.description.split(separator: ".")
+        if array.count == 2 {
+            let result = NSMutableAttributedString(string: str)
+            let range = (str as NSString).range(of: ".\(array[1])")
+            //result.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemGray4, range: range)
+            result.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 22), range: range)
+            return result
+        } else {
+            return NSAttributedString(string: str)
+        }
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        footerString()
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+
+}
+
+extension ViewController: UITableViewDataSource {
+    
+    func registerCells() {
+        tableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "item")
+        tableView.register(SumFooterView.self, forHeaderFooterViewReuseIdentifier: "sum")
+    }
+  
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sum") as! SumFooterView
+        footerView.sum = calculator.sum()
+        return footerView
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,9 +93,7 @@ extension ViewController: UITableViewDataSource {
             calculator.items.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [ indexPath ], with: .automatic)
-            
-            tableView.footerView(forSection: 0)!.textLabel!.text = footerString()
-            tableView.footerView(forSection: 0)!.textLabel!.sizeToFit()
+            updateSum()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
