@@ -23,11 +23,12 @@ class Calculator {
     }
     
     func sum() -> Double {
-        var sum:Double = 0
+        var sum:Decimal = 0
         for item in items {
-            sum += item.price * Double(item.count)
+            sum += Decimal(item.price) * Decimal(item.count)
         }
-        return sum
+        
+        return Double(truncating: NSDecimalNumber(decimal:sum))
     }
     
     func clear() {
@@ -116,28 +117,28 @@ class ViewController: UIViewController {
     
     var price: String = "0" {
         didSet {
-//            print(price)
-            
-//            if price.truncatingRemainder(dividingBy: 1) == 0 {
-//                priceLbl.text = String(format: "%.0f\(UserSetting.currency)", price)
-//            } else {
-//                priceLbl.text = "\(price)\(UserSetting.currency)"
-//            }
             let currencyFormatter = NumberFormatter()
             currencyFormatter.usesGroupingSeparator = true
             currencyFormatter.numberStyle = .currency
             currencyFormatter.locale = Locale.current
             currencyFormatter.maximumSignificantDigits = 100
 
-            let converter = NumberFormatter()
-            converter.decimalSeparator = "."
             
-            if let number = converter.number(from: price) {
-                priceLbl.text = currencyFormatter.string(for: number)
-            } else {
-                price = "0"
-                priceLbl.text = currencyFormatter.string(for: Int64(price))
-            }
+//            if price.truncatingRemainder(dividingBy: 1) == 0 {
+//                priceLbl.text = String(format: "%.0f\(UserSetting.currency)", price)
+//            } else {
+            priceLbl.text = "\(currencyFormatter.currencySymbol!)\(price)"
+//            }
+//
+//            let converter = NumberFormatter()
+//            converter.decimalSeparator = "."
+//
+//            if let number = converter.number(from: price) {
+//                priceLbl.text = currencyFormatter.string(for: number)
+//            } else {
+//                price = "0"
+//                priceLbl.text = currencyFormatter.string(for: Int64(price))
+//            }
             
             updateDotBtn()
         }

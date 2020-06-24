@@ -24,7 +24,8 @@ extension ViewController: UITableViewDataSource {
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
         currencyFormatter.locale = Locale.current
-        currencyFormatter.minimumFractionDigits = 0
+        currencyFormatter.maximumSignificantDigits = 100
+        
         return currencyFormatter.string(for: calculator.sum())
     }
     
@@ -68,7 +69,7 @@ extension ViewController: UITableViewDataSource {
         selectType = nil
         selectedItemIndexPath = indexPath
         let item = calculator.items[indexPath.row]
-        print(item)
+        //print(item)
         name = item.name
         price = String(item.price)
         count = String(item.count)

@@ -18,14 +18,18 @@ class ItemTableViewCell: UITableViewCell {
     var item: MartItem? {
         didSet {
             if let item = item {
-                let allPrice = (Double(item.count) * item.price).removeZerosFromEnd()
-                print("Float(item.count): \(Float(item.count))")
-                print("item.price: \(item.price)")
-                print("allPrice: \(allPrice)")
+                let currencyFormatter = NumberFormatter()
+                currencyFormatter.numberStyle = .decimal
+                currencyFormatter.usesGroupingSeparator = true
+                currencyFormatter.maximumSignificantDigits = 100
+                
+                let sum = Decimal(item.count) * Decimal(item.price)
+                let allPrice = currencyFormatter.string(for: sum)!
+                let price = currencyFormatter.string(for: item.price)!
                 nameLbl.text = item.name
-                priceLbl.text = "\(item.price.removeZerosFromEnd())"
+                priceLbl.text = price
                 countLbl.text = "×\(item.count)"
-                allPriceLbl.text = "\(allPrice)"
+                allPriceLbl.text = allPrice
                 
                 if item.price <= 0 {
                     backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0.02)
