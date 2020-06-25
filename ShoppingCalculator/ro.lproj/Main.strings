@@ -1,0 +1,57 @@
+
+/* Class = "UIButton"; normalTitle = "Del"; ObjectID = "07R-7g-xu9"; */
+"07R-7g-xu9.normalTitle" = "Del";
+
+/* Class = "UITextField"; placeholder = "갯수"; ObjectID = "121-UQ-TnM"; */
+"121-UQ-TnM.placeholder" = "갯수";
+
+/* Class = "UITextField"; placeholder = "가격"; ObjectID = "4ck-67-c9u"; */
+"4ck-67-c9u.placeholder" = "가격";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "5pt-YH-Kci"; */
+"5pt-YH-Kci.normalTitle" = "8";
+
+/* Class = "UIButton"; normalTitle = "추가"; ObjectID = "6aJ-fX-3B5"; */
+"6aJ-fX-3B5.normalTitle" = "추가";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "AzZ-fZ-RG7"; */
+"AzZ-fZ-RG7.normalTitle" = "0";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "F63-f7-q2F"; */
+"F63-f7-q2F.normalTitle" = "4";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "FIP-8s-eQ6"; */
+"FIP-8s-eQ6.normalTitle" = "9";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "FKn-qD-8Me"; */
+"FKn-qD-8Me.normalTitle" = "1";
+
+/* Class = "UIButton"; normalTitle = "AC"; ObjectID = "IW6-Qg-VM8"; */
+"IW6-Qg-VM8.normalTitle" = "AC";
+
+/* Class = "UIButton"; normalTitle = "✕"; ObjectID = "KN4-yX-1Lr"; */
+"KN4-yX-1Lr.normalTitle" = "✕";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "Kx9-UA-Ptb"; */
+"Kx9-UA-Ptb.normalTitle" = "3";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "ZwE-pT-wuH"; */
+"ZwE-pT-wuH.normalTitle" = "5";
+
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "cD9-6U-Xil"; */
+"cD9-6U-Xil.normalTitle" = "7";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "fR8-xu-Mil"; */
+"fR8-xu-Mil.normalTitle" = "6";
+
+/* Class = "UIButton"; normalTitle = "."; ObjectID = "hnr-79-gV6"; */
+"hnr-79-gV6.normalTitle" = ".";
+
+/* Class = "UITextField"; placeholder = "✎"; ObjectID = "mXx-5f-cu5"; */
+"mXx-5f-cu5.placeholder" = "✎";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "oid-pA-r6b"; */
+"oid-pA-r6b.normalTitle" = "2";
+
+/* Class = "UIButton"; normalTitle = "00"; ObjectID = "pyw-XN-Gi5"; */
+"pyw-XN-Gi5.normalTitle" = "00";
