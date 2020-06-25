@@ -14,7 +14,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 class SumFooterView: UITableViewHeaderFooterView {
-    var sum: Double = 0 {
+    var sum: String = "0" {
         didSet {
             self.textLabel!.attributedText = footerAttrString()
             self.textLabel!.sizeToFit()
@@ -28,13 +28,15 @@ class SumFooterView: UITableViewHeaderFooterView {
         currencyFormatter.locale = Locale.current
         currencyFormatter.maximumSignificantDigits = 100
         
-        let str = currencyFormatter.string(for: sum)!
+        let formatter = NumberFormatter()
+        let num = formatter.number(from: sum)!
+        let str = currencyFormatter.string(from: num)!
         
         let array = sum.description.split(separator: ".")
         if array.count == 2 {
             let result = NSMutableAttributedString(string: str)
             let range = (str as NSString).range(of: ".\(array[1])")
-            //result.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemGray4, range: range)
+            result.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: range)
             result.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 22), range: range)
             return result
         } else {

@@ -25,6 +25,7 @@
 		7172284C2499DCCE000F622A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284B2499DCCE000F622A /* Const.swift */; };
 		717228542499EF0F000F622A /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228532499EF0F000F622A /* UserSetting.swift */; };
 		71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */; };
+		717E96E624A3C9170032A17A /* String + fractional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E96E524A3C9170032A17A /* String + fractional.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		7172284F2499DE9D000F622A /* URL + storeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + storeURL.swift"; sourceTree = "<group>"; };
 		717228532499EF0F000F622A /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		71722855249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		717E96E524A3C9170032A17A /* String + fractional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String + fractional.swift"; path = "ShoppingCalculator/Extentions/String + fractional.swift"; sourceTree = SOURCE_ROOT; };
 		AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				715571F5249C7FB700BAD41E /* UIView + Designable.swift */,
 				7172284F2499DE9D000F622A /* URL + storeURL.swift */,
 				715571F7249F314700BAD41E /* UIButton + UIColor.swift */,
+				717E96E524A3C9170032A17A /* String + fractional.swift */,
 			);
 			path = extentions;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				7172284C2499DCCE000F622A /* Const.swift in Sources */,
 				715571F8249F314700BAD41E /* UIButton + UIColor.swift in Sources */,
 				7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */,
+				717E96E624A3C9170032A17A /* String + fractional.swift in Sources */,
 				715571F4249C7F9900BAD41E /* URL + storeURL.swift in Sources */,
 				71722856249A3A2E000F622A /* ViewController + UITextFieldDelegate.swift in Sources */,
 				7172282F24985B2E000F622A /* SceneDelegate.swift in Sources */,

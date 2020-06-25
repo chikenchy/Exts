@@ -22,15 +22,21 @@ class Calculator {
         items.append(item)
     }
     
-    func sum() -> Double {
-        var sum:Decimal = 0
+    func sum() -> String {
+        var sum:Decimal = Decimal(0)
         for item in items {
             let add = Decimal(item.price) * Decimal(item.count)
-            print("add: \(add)")
             sum += add
+//            print(item.price)
+////            print("add: \(add) = \(Decimal(item.price)) * \(Decimal(item.count))")
+//
+//            for _ in 0..<item.count {
+//                sum += item.price
+//            }
+//
         }
-        
-        return Double(truncating: NSDecimalNumber(decimal:sum))
+        return sum.description
+//        return Double(truncating: NSDecimalNumber(decimal:sum))
     }
     
     func clear() {
@@ -170,7 +176,7 @@ class ViewController: UIViewController {
         
         let btnType: BtnType?
         switch sender.titleLabel!.text {
-        case "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "00", "000":
+        case "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "00":
             let str = sender.titleLabel!.text!
             btnType = .digit(str: str)
         case ".":
@@ -196,7 +202,7 @@ class ViewController: UIViewController {
         switch btnType! {
         case .digit(let str):
             switch str {
-            case "0", "00", "000":
+            case "0", "00":
                 if selectType == .price {
                     if price.isEmpty {
                         price += "0"
@@ -224,7 +230,11 @@ class ViewController: UIViewController {
             }
         case .dot:
             if selectType == .price {
-                price += "."
+                if price == "" {
+                    price = "0."
+                } else {
+                    price += "."
+                }
             }
         case .allClear:
             allClear()
@@ -247,8 +257,8 @@ class ViewController: UIViewController {
             
             if let selectedItemIndexPath = selectedItemIndexPath {
                 let item = calculator.items[selectedItemIndexPath.row]
-                item.count = Int64(count)!
-                item.price = Double(price)!
+                item.count = Int64(count) ?? 0
+                item.price = Double(price) ?? 0
                 item.name = name
                 item.createdAt = Date()
                 
@@ -260,8 +270,8 @@ class ViewController: UIViewController {
                 tableView.endUpdates()
             } else {
                 let item = MartItem(context: CoreDataManager.shared.context)
-                item.count = Int64(count)!
-                item.price = Double(price)!
+                item.count = Int64(count) ?? 0
+                item.price = Double(price) ?? 0
                 item.name = nameLbl.text
                 item.createdAt = Date()
                 calculator.add(item: item)
@@ -285,7 +295,11 @@ class ViewController: UIViewController {
                 }
             case .price:
                 if price.count > 0 {
-                    price.removeLast()
+                    if price == "0." {
+                        price.removeAll()
+                    } else {
+                        price.removeLast()
+                    }
                 }
             default: break
             }
