@@ -1,10 +1,3 @@
-//
-//  URL + storeURL.swift
-//
-//  Created by 신희욱 on 2020/06/03.
-//  Copyright © 2020 신희욱. All rights reserved.
-//
-
 import Foundation
 import CoreData
 

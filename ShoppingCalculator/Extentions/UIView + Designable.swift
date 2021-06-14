@@ -1,10 +1,3 @@
-//
-//  UIView + Designable.swift
-//
-//  Created by 신희욱 on 2020/06/18.
-//  Copyright © 2020 AXI. All rights reserved.
-//
-
 import UIKit
 
 @IBDesignable

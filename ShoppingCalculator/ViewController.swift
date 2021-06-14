@@ -1,16 +1,8 @@
-//
-//  ViewController.swift
-//  MartCalculator
-//
-//  Created by 신희욱 on 2020/06/16.
-//  Copyright © 2020 AXI. All rights reserved.
-//
-
 import UIKit
 import CoreData
 import GoogleMobileAds
 
-class Calculator {
+final class Calculator {
     
     var items = [MartItem]()
     
@@ -27,16 +19,8 @@ class Calculator {
         for item in items {
             let add = Decimal(item.price) * Decimal(item.count)
             sum += add
-//            print(item.price)
-////            print("add: \(add) = \(Decimal(item.price)) * \(Decimal(item.count))")
-//
-//            for _ in 0..<item.count {
-//                sum += item.price
-//            }
-//
         }
         return sum.description
-//        return Double(truncating: NSDecimalNumber(decimal:sum))
     }
     
     func clear() {
@@ -62,9 +46,7 @@ enum SelectType: Equatable {
     case count
 }
 
-class ViewController: UIViewController {
-    
-//    override var prefersStatusBarHidden: Bool { true }
+final class ViewController: UIViewController {
     
     var selectedItemIndexPath: IndexPath? {
         didSet {
@@ -130,23 +112,8 @@ class ViewController: UIViewController {
             currencyFormatter.numberStyle = .currency
             currencyFormatter.locale = Locale.current
             currencyFormatter.maximumSignificantDigits = 100
-
             
-//            if price.truncatingRemainder(dividingBy: 1) == 0 {
-//                priceLbl.text = String(format: "%.0f\(UserSetting.currency)", price)
-//            } else {
             priceLbl.text = "\(currencyFormatter.currencySymbol!)\(price)"
-//            }
-//
-//            let converter = NumberFormatter()
-//            converter.decimalSeparator = "."
-//
-//            if let number = converter.number(from: price) {
-//                priceLbl.text = currencyFormatter.string(for: number)
-//            } else {
-//                price = "0"
-//                priceLbl.text = currencyFormatter.string(for: Int64(price))
-//            }
             
             updateDotBtn()
         }

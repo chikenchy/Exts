@@ -1,14 +1,6 @@
-//
-//  ItemTableViewCell.swift
-//  MartCalculator
-//
-//  Created by 신희욱 on 2020/06/17.
-//  Copyright © 2020 AXI. All rights reserved.
-//
-
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+final class ItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!

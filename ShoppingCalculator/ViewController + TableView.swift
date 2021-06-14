@@ -1,11 +1,3 @@
-//
-//  ViewController - TableView.swift
-//  MartCalculator
-//
-//  Created by 신희욱 on 2020/06/17.
-//  Copyright © 2020 AXI. All rights reserved.
-//
-
 import UIKit
 
 
@@ -13,7 +5,7 @@ extension ViewController: UITableViewDelegate {
 
 }
 
-class SumFooterView: UITableViewHeaderFooterView {
+final class SumFooterView: UITableViewHeaderFooterView {
     var sum: String = "0" {
         didSet {
             self.textLabel!.attributedText = footerAttrString()

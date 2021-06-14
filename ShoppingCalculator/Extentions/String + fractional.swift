@@ -1,11 +1,3 @@
-//
-//  String + demical.swift
-//  ShoppingCalculator
-//
-//  Created by 신희욱 on 2020/06/25.
-//  Copyright © 2020 AXI. All rights reserved.
-//
-
 import Foundation
 
 extension Double {
@@ -16,4 +8,5 @@ extension Double {
         print(result)
         return result
     }
+    
 }
