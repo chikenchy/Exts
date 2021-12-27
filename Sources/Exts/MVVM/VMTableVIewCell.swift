@@ -3,24 +3,21 @@
 import UIKit
 import RxSwift
 
-public extension Exts {
-    
-    open class VMTableViewCell<VM: AnyObject>: UITableViewCell {
-        var bag = DisposeBag()
-        var vm: VM? {
-            didSet {
-                self.bag = DisposeBag()
-                if let vm = self.vm {
-                    self.bind(to: vm)
-                }
+open class VMTableViewCell<VM: AnyObject>: UITableViewCell {
+    var bag = DisposeBag()
+    var vm: VM? {
+        didSet {
+            self.bag = DisposeBag()
+            if let vm = self.vm {
+                self.bind(to: vm)
             }
-        }
-        
-        open func bind(to vm: VM) {
-            
         }
     }
     
+    open func bind(to vm: VM) {
+        
+    }
 }
+
 
 #endif

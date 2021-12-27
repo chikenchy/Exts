@@ -3,35 +3,31 @@
 import UIKit
 import RxSwift
 
-public extension Exts {
-    
-    open class VMCollectionViewController<VM: AnyObject>: UIViewController {
-        public var bag = DisposeBag()
-        public var vm: VM? {
-            didSet {
-                self.bag = DisposeBag()
-                if let vm = self.vm,
-                   self.isViewLoaded {
-                    self.bind(to: vm)
-                }
+open class VMCollectionViewController<VM: AnyObject>: UIViewController {
+    public var bag = DisposeBag()
+    public var vm: VM? {
+        didSet {
+            self.bag = DisposeBag()
+            if let vm = self.vm,
+               self.isViewLoaded {
+                self.bind(to: vm)
             }
         }
-        public let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    }
+    public let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            self.view.addSubview(self.collectionView)
-            self.collectionView.snp.makeConstraints { $0.edges.equalToSuperview() }
-        }
-        
-        public func bind(to vm: VM) { }
-        
-        public convenience init(to vm: VM) {
-            self.init(nibName: nil, bundle: nil)
-            self.vm = vm
-        }
-        
+        self.view.addSubview(self.collectionView)
+        self.collectionView.snp.makeConstraints { $0.edges.equalToSuperview() }
+    }
+    
+    public func bind(to vm: VM) { }
+    
+    public convenience init(to vm: VM) {
+        self.init(nibName: nil, bundle: nil)
+        self.vm = vm
     }
     
 }
