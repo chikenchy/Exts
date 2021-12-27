@@ -5,7 +5,7 @@ import RxSwift
 
 extension Exts.MVVM {
     
-    open class VMTableViewCell<VM: AnyObject>: UITableViewCell {
+    public class VMTableViewCell<VM: AnyObject>: UITableViewCell {
         var bag = DisposeBag()
         var vm: VM? {
             didSet {
@@ -16,7 +16,7 @@ extension Exts.MVVM {
             }
         }
         
-        func bind(to vm: VM) {
+        open func bind(to vm: VM) {
             
         }
     }

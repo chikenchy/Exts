@@ -6,8 +6,8 @@ import RxSwift
 extension Exts.MVVM {
     
     public class VMCollectionViewController<VM: AnyObject>: UIViewController {
-        var bag = DisposeBag()
-        var vm: VM? {
+        public var bag = DisposeBag()
+        public var vm: VM? {
             didSet {
                 self.bag = DisposeBag()
                 if let vm = self.vm,
@@ -16,7 +16,7 @@ extension Exts.MVVM {
                 }
             }
         }
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        public let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -25,9 +25,9 @@ extension Exts.MVVM {
             self.collectionView.snp.makeConstraints { $0.edges.equalToSuperview() }
         }
         
-        func bind(to vm: VM) { }
+        public func bind(to vm: VM) { }
         
-        convenience init(to vm: VM) {
+        public convenience init(to vm: VM) {
             self.init(nibName: nil, bundle: nil)
             self.vm = vm
         }

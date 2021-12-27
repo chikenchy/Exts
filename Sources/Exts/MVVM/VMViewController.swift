@@ -16,12 +16,12 @@ extension Exts.MVVM {
             }
         }
         
-        convenience init(to vm: VM) {
+        public convenience init(to vm: VM) {
             self.init(nibName: nil, bundle: nil)
             self.vm = vm
         }
         
-        func bind(to vm: VM) { }
+        public func bind(to vm: VM) { }
     }
 }
 

@@ -4,7 +4,7 @@ import UIKit
 
 extension UIView {
     
-    convenience init(
+    public convenience init(
         alpha: CGFloat? = nil,
         autoresizesSubviews: Bool? = nil,
         autoresizingMask: AutoresizingMask? = nil,
@@ -147,6 +147,5 @@ extension UILabel {
         }
     }
 }
-
 
 #endif

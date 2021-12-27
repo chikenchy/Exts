@@ -4,7 +4,7 @@ import UIKit
 
 extension UIViewController {
     
-    func addNC() -> UINavigationController {
+    public func addNC() -> UINavigationController {
         if let nc = self as? UINavigationController {
             return nc
         }
