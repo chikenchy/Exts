@@ -1,4 +1,4 @@
-#if canImport(UIKit) && canImport(RxSwift)
+#if canImport(UIKit) && canImport(RxSwift) && canImport(SnapKit)
 
 import UIKit
 import RxSwift
@@ -16,7 +16,7 @@ open class VMTableViewController<VM: AnyObject>: UIViewController {
     }
     public let tableView = UITableView(frame: .zero, style: .plain)
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.addSubview(self.tableView)

@@ -1,7 +1,8 @@
-#if canImport(UIKit) && canImport(RxSwift)
+#if canImport(UIKit) && canImport(RxSwift) && canImport(SnapKit)
 
 import UIKit
 import RxSwift
+import SnapKit
 
 open class VMCollectionViewController<VM: AnyObject>: UIViewController {
     public var bag = DisposeBag()
@@ -16,7 +17,7 @@ open class VMCollectionViewController<VM: AnyObject>: UIViewController {
     }
     public let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.addSubview(self.collectionView)

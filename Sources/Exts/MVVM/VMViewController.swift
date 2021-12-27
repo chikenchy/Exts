@@ -1,11 +1,10 @@
-#if canImport(UIKit) && canImport(RxSwift)
 
 import UIKit
 import RxSwift
 
 open class VMViewController<VM: AnyObject>: UIViewController {
-    var bag = DisposeBag()
-    var vm: VM? {
+    public var bag = DisposeBag()
+    public var vm: VM? {
         didSet {
             self.bag = DisposeBag()
             if let vm = self.vm,
@@ -22,5 +21,3 @@ open class VMViewController<VM: AnyObject>: UIViewController {
     
     public func bind(to vm: VM) { }
 }
-
-#endif

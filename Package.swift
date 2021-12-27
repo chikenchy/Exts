@@ -24,7 +24,7 @@ let package = Package(
     targets: [
         .target(
             name: "Exts",
-            dependencies: []),
+            dependencies: ["RxSwift", "SnapKit"]),
         .testTarget(
             name: "ExtsTests",
             dependencies: ["Exts"]),
