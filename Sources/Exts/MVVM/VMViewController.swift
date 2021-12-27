@@ -4,7 +4,7 @@ import UIKit
 import RxSwift
 
 extension Exts.MVVM {
-    public class VMViewController<VM: AnyObject>: UIViewController {
+    open class VMViewController<VM: AnyObject>: UIViewController {
         var bag = DisposeBag()
         var vm: VM? {
             didSet {

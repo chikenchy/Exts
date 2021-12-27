@@ -5,7 +5,7 @@ import RxSwift
 
 
 extension Exts.MVVM {
-    public class VMTableViewController<VM: AnyObject>: UIViewController {
+    open class VMTableViewController<VM: AnyObject>: UIViewController {
         public var bag = DisposeBag()
         public var vm: VM? {
             didSet {
