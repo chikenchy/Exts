@@ -3,8 +3,7 @@
 import UIKit
 import RxSwift
 
-
-extension Exts.MVVM {
+extension Exts {
     open class VMTableViewController<VM: AnyObject>: UIViewController {
         public var bag = DisposeBag()
         public var vm: VM? {
