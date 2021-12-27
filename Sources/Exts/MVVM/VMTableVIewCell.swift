@@ -3,7 +3,7 @@
 import UIKit
 import RxSwift
 
-extension Exts {
+public extension Exts {
     
     open class VMTableViewCell<VM: AnyObject>: UITableViewCell {
         var bag = DisposeBag()

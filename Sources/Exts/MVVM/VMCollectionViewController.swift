@@ -3,7 +3,7 @@
 import UIKit
 import RxSwift
 
-extension Exts {
+public extension Exts {
     
     open class VMCollectionViewController<VM: AnyObject>: UIViewController {
         public var bag = DisposeBag()
