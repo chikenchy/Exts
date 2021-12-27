@@ -3,8 +3,8 @@ import UIKit
 import RxSwift
 
 open class VMViewController<VM: AnyObject>: UIViewController {
-    public var bag = DisposeBag()
-    public var vm: VM? {
+    var bag = DisposeBag()
+    var vm: VM? {
         didSet {
             self.bag = DisposeBag()
             if let vm = self.vm,
@@ -14,10 +14,10 @@ open class VMViewController<VM: AnyObject>: UIViewController {
         }
     }
     
-    public convenience init(to vm: VM) {
+    convenience init(to vm: VM) {
         self.init(nibName: nil, bundle: nil)
         self.vm = vm
     }
     
-    public func bind(to vm: VM) { }
+    func bind(to vm: VM) { }
 }
