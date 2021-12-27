@@ -5,8 +5,8 @@ import RxSwift
 import SnapKit
 
 open class VMCollectionViewController<VM: AnyObject>: UIViewController {
-    public var bag = DisposeBag()
-    public var vm: VM? {
+    open var bag = DisposeBag()
+    open var vm: VM? {
         didSet {
             self.bag = DisposeBag()
             if let vm = self.vm,
@@ -24,7 +24,7 @@ open class VMCollectionViewController<VM: AnyObject>: UIViewController {
         self.collectionView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     
-    public func bind(to vm: VM) { }
+    open func bind(to vm: VM) { }
     
     public convenience init(to vm: VM) {
         self.init(nibName: nil, bundle: nil)
