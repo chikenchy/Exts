@@ -2,7 +2,7 @@
 import UIKit
 import RxSwift
 
-open class VMViewController<VM: AnyObject>: UIViewController {
+open class VMViewController<VM>: UIViewController {
     open var bag = DisposeBag()
     open var vm: VM? {
         didSet {

@@ -2,9 +2,8 @@
 
 import UIKit
 import RxSwift
-import SnapKit
 
-open class VMCollectionViewController<VM: AnyObject>: UIViewController {
+open class VMTableViewController<VM>: UIViewController {
     open var bag = DisposeBag()
     open var vm: VM? {
         didSet {
@@ -15,13 +14,13 @@ open class VMCollectionViewController<VM: AnyObject>: UIViewController {
             }
         }
     }
-    public let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    public let tableView = UITableView(frame: .zero, style: .plain)
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(self.collectionView)
-        self.collectionView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        self.view.addSubview(self.tableView)
+        self.tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     
     open func bind(to vm: VM) { }
@@ -32,5 +31,4 @@ open class VMCollectionViewController<VM: AnyObject>: UIViewController {
     }
     
 }
-
 #endif

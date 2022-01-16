@@ -3,7 +3,7 @@
 import UIKit
 import RxSwift
 
-open class VMTableViewCell<VM: AnyObject>: UITableViewCell {
+open class VMTableViewCell<VM>: UITableViewCell {
     open var bag = DisposeBag()
     open var vm: VM? {
         didSet {
