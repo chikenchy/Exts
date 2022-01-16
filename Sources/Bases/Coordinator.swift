@@ -1,12 +1,12 @@
 import UIKit
 
 
-public protocol Coodinator {
+protocol Coordinator {
     var childCoordinators: [Coodinator] { get }
     func start()
 }
 
 
-public protocol NavigationCoordinator: Coodinator {
+protocol NavigationCoordinator: Coordinator {
     var nc: UINavigationController { get }
 }
