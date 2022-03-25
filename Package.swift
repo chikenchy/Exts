@@ -17,12 +17,15 @@ let package = Package(
         .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.2.0"),
         .package(url: "https://github.com/SnapKit/SnapKit", from: "5.0.1"),
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.5.0"),
+        .package(url: "https://github.com/devxoul/Then", from: "2.7.0"),
+        
     ],
     targets: [
         // targets
         .target(name: "Exts", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
         .target(name: "MVVM", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
         .target(name: "Bases", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
+        .target(name: "ModalMoveable", dependencies: ["RxSwift", "SnapKit", "Alamofire", "Then"]),
         // tests
         .testTarget(name: "ExtsTests", dependencies: ["Exts", "MVVM"]),
     ],
