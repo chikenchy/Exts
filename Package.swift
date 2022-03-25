@@ -12,6 +12,7 @@ let package = Package(
         .library(name: "Exts", targets: ["Exts"]),
         .library(name: "MVVM", targets: ["MVVM"]),
         .library(name: "Bases", targets: ["Bases"]),
+        .library(name: "ModalMoveable", targets: ["ModalMoveable"]),
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.2.0"),
