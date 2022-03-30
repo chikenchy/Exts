@@ -26,7 +26,7 @@ open class ModalMoveableVC: UIViewController, ModalMoveable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         view.cornerRadius(
@@ -105,27 +105,27 @@ open class ModalMoveableVC: UIViewController, ModalMoveable {
     
     // MARK: ModalMoveable
     
-    public var backdropView: UIView? { self.backgroundView }
+    open var backdropView: UIView? { self.backgroundView }
     
-    public var dismissYPosition: CGFloat { UIScreen.main.bounds.height * 4 / 5 }
+    open var dismissYPosition: CGFloat { UIScreen.main.bounds.height * 4 / 5 }
     
-    public var defaultYPosition: CGFloat { UIScreen.main.bounds.height / 2 }
+    open var defaultYPosition: CGFloat { UIScreen.main.bounds.height / 2 }
     
-    public var minYPosition: CGFloat { UIScreen.main.bounds.height / 6 }
+    open var minYPosition: CGFloat { UIScreen.main.bounds.height / 6 }
     
-    public var transitionDuration: TimeInterval { 0.4 }
+    open var transitionDuration: TimeInterval { 0.4 }
 }
 
 
 extension ModalMoveableVC: UIViewControllerTransitioningDelegate {
     
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let modalMoveable = presented as? ModalMoveable else { return nil }
         
         return ModalMoveablePresentControllerAnimatedTransitioning(modalMoveable: modalMoveable)
     }
     
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let modalMoveable = dismissed as? ModalMoveable else { return nil }
         
         return ModalMoveableDismissControllerAnimatedTransitioning(modalMoveable: modalMoveable)
