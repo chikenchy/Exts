@@ -26,7 +26,7 @@ let package = Package(
         .target(name: "Exts", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
         .target(name: "MVVM", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
         .target(name: "Bases", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
-        .target(name: "ModalMoveable", dependencies: ["RxSwift", "SnapKit", "Alamofire", "Then"]),
+        .target(name: "ModalMoveable", dependencies: ["RxSwift", "SnapKit", "Alamofire", "Then", "Exts"]),
         // tests
         .testTarget(name: "ExtsTests", dependencies: ["Exts", "MVVM"]),
     ],
