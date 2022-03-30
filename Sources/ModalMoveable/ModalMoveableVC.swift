@@ -11,7 +11,7 @@ public protocol ModalMoveable: UIViewController {
 }
 
 
-public class ModalMoveableVC: UIViewController, ModalMoveable {
+open class ModalMoveableVC: UIViewController, ModalMoveable {
     var backgroundView = UIView()
     private var locationOfPanBegan: CGPoint?
     
@@ -22,7 +22,7 @@ public class ModalMoveableVC: UIViewController, ModalMoveable {
         transitioningDelegate = self
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
