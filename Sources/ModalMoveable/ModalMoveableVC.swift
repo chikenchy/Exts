@@ -16,7 +16,7 @@ open class ModalMoveableVC: UIViewController, ModalMoveable {
     private var locationOfPanBegan: CGPoint?
     
     
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .custom
         transitioningDelegate = self
