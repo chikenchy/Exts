@@ -11,7 +11,7 @@ public protocol ModalMoveable: UIViewController {
 }
 
 
-class ModalMoveableVC: UIViewController, ModalMoveable {
+public class ModalMoveableVC: UIViewController, ModalMoveable {
     var backgroundView = UIView()
     private var locationOfPanBegan: CGPoint?
     
@@ -26,7 +26,7 @@ class ModalMoveableVC: UIViewController, ModalMoveable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         view.cornerRadius(
@@ -105,27 +105,27 @@ class ModalMoveableVC: UIViewController, ModalMoveable {
     
     // MARK: ModalMoveable
     
-    var backdropView: UIView? { self.backgroundView }
+    public var backdropView: UIView? { self.backgroundView }
     
-    var dismissYPosition: CGFloat { UIScreen.main.bounds.height * 4 / 5 }
+    public var dismissYPosition: CGFloat { UIScreen.main.bounds.height * 4 / 5 }
     
-    var defaultYPosition: CGFloat { UIScreen.main.bounds.height / 2 }
+    public var defaultYPosition: CGFloat { UIScreen.main.bounds.height / 2 }
     
-    var minYPosition: CGFloat { UIScreen.main.bounds.height / 6 }
+    public var minYPosition: CGFloat { UIScreen.main.bounds.height / 6 }
     
-    var transitionDuration: TimeInterval { 0.4 }
+    public var transitionDuration: TimeInterval { 0.4 }
 }
 
 
 extension ModalMoveableVC: UIViewControllerTransitioningDelegate {
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let modalMoveable = presented as? ModalMoveable else { return nil }
         
         return ModalMoveablePresentControllerAnimatedTransitioning(modalMoveable: modalMoveable)
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let modalMoveable = dismissed as? ModalMoveable else { return nil }
         
         return ModalMoveableDismissControllerAnimatedTransitioning(modalMoveable: modalMoveable)

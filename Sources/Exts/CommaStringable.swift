@@ -1,13 +1,13 @@
 
 import Foundation
 
-protocol CommaStringable {
+public protocol CommaStringable {
     func commaString() -> String
 }
 
 extension Int: CommaStringable {
     
-    func commaString() -> String {
+    public func commaString() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         
@@ -18,7 +18,7 @@ extension Int: CommaStringable {
 
 extension Double: CommaStringable {
     
-    func commaString() -> String {
+    public func commaString() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         
