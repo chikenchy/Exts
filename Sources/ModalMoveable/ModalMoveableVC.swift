@@ -2,7 +2,7 @@
 import UIKit
 import Exts
 
-protocol ModalMoveable: UIViewController {
+public protocol ModalMoveable: UIViewController {
     var backdropView: UIView? { get }
     var defaultYPosition: CGFloat { get }
     var dismissYPosition: CGFloat { get }
