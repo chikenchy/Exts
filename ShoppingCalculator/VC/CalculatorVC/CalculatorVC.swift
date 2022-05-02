@@ -1,16 +1,38 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
+import SideMenu
 
 final class Calculator {
-    
     var items = [MartItem]()
+    var history: History?
     
-    func load(hostory: History) {
+    func load(history: History) {
+        self.history = history
         
+        items.removeAll()
+        if let martItems = history.martItems as? Set<MartItem> {
+            items.append(contentsOf: martItems)
+        }
     }
     
-    func add(item: MartItem) {
+    func add(count: Int64, price: Double, name: String?) {
+        let item = MartItem(context: CoreDataManager.shared.context)
+        item.count = count
+        item.price = price
+        item.name = name
+        item.createdAt = Date()
+        
+        if self.history == nil {
+            let new = History(context: CoreDataManager.shared.context)
+            new.id = UUID()
+            new.createdAt = Date()
+            self.history = new
+        }
+        
+        self.history?.updatedAt = Date()
+        self.history?.addToMartItems(item)
+        
         items.append(item)
     }
     
@@ -24,7 +46,15 @@ final class Calculator {
     }
     
     func clear() {
+        if let history = self.history {
+            history.willSave()
+            
+            self.history = nil
+        }
+        
         items.removeAll()
+        
+        CoreDataManager.shared.saveContext()
     }
 }
 
@@ -46,7 +76,10 @@ enum SelectType: Equatable {
     case count
 }
 
-final class ViewController: UIViewController {
+final class CalculatorVC: UIViewController {
+    static var shared: CalculatorVC!
+    
+    override var prefersStatusBarHidden: Bool { true }
     
     var selectedItemIndexPath: IndexPath? {
         didSet {
@@ -97,12 +130,8 @@ final class ViewController: UIViewController {
     @IBOutlet weak var countLbl: UITextField!
     
     var name: String? {
-        get {
-            nameLbl.text
-        }
-        set {
-            nameLbl.text = newValue
-        }
+        get { nameLbl.text }
+        set { nameLbl.text = newValue }
     }
     
     var price: String = "0" {
@@ -125,6 +154,21 @@ final class ViewController: UIViewController {
             }
             countLbl.text = "×\(Int64(count)!)"
         }
+    }
+    
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        sharedInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        sharedInit()
+    }
+    
+    private func sharedInit() {
+        CalculatorVC.shared = self
     }
     
     func allClear() {
@@ -236,12 +280,7 @@ final class ViewController: UIViewController {
                 updateSum()
                 tableView.endUpdates()
             } else {
-                let item = MartItem(context: CoreDataManager.shared.context)
-                item.count = Int64(count) ?? 0
-                item.price = Double(price) ?? 0
-                item.name = nameLbl.text
-                item.createdAt = Date()
-                calculator.add(item: item)
+                calculator.add(count: Int64(count) ?? 0, price: Double(price) ?? 0, name: name)
                 
                 tableView.beginUpdates()
                 tableView.insertRows(at: [IndexPath(row: calculator.items.count-1, section: 0)], with: .automatic)
@@ -340,8 +379,8 @@ final class ViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -371,57 +410,44 @@ final class ViewController: UIViewController {
         digit9.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         clearBtn.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         allClearBtn.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
-
+        
         bannerView.rootViewController = self
         bannerView.delegate = self
         
-        if true {
-            let req = GADRequest()
-            bannerView.load(req)
-            bannerView.isHidden = true
-        }
+        // setup SideMenu
+        let sideVC = HistoryTableViewController()
+        let menuNC = SideMenuNavigationController(rootViewController:sideVC)
+        menuNC.statusBarEndAlpha = 0
+        menuNC.menuWidth = 200
+        
+        SideMenuManager.default.leftMenuNavigationController = menuNC
+//        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.view)
     }
-}
-
-extension ViewController: GADBannerViewDelegate {
     
-    /// Tells the delegate an ad request loaded an ad.
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("adViewDidReceiveAd")
-        bannerView.isHidden = false
-    }
-
-    /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let req = GADRequest()
+        bannerView.load(req)
         bannerView.isHidden = true
-    }
-
-    /// Tells the delegate that a full-screen view will be presented in response
-    /// to the user clicking on an ad.
-    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("adViewWillPresentScreen")
-    }
-
-    /// Tells the delegate that the full-screen view will be dismissed.
-    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("adViewWillDismissScreen")
-    }
-
-    /// Tells the delegate that the full-screen view has been dismissed.
-    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("adViewDidDismissScreen")
-    }
-
-    /// Tells the delegate that a user click will open another app (such as
-    /// the App Store), backgrounding the current app.
-    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-      print("adViewWillLeaveApplication")
     }
     
     func updateSum() {
         let sumFooterView = tableView.footerView(forSection: 0) as! SumFooterView
         sumFooterView.sum = calculator.sum()
+    }
+    
+}
+
+extension CalculatorVC {
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
     }
     
 }

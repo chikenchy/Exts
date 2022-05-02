@@ -18,7 +18,6 @@ final class CoreDataManager {
         return container
     }()
     
-    
     func saveContext () {
         if context.hasChanges {
             do {
@@ -29,7 +28,6 @@ final class CoreDataManager {
             }
         }
     }
-    
     
     func reset() {
         context.reset()

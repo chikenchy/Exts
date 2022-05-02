@@ -1,41 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--CalculatorVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ShoppingCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculatorVC" customModule="ShoppingCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sFf-7X-zLK">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSu-gN-GmR" customClass="GADBannerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="33Y-l7-nFL"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoloadEnabled" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-9095645775931715/7613766216"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xpe-xp-C7A" userLabel="Item TableView">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="408"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <sections/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isR-Hk-J7d" userLabel="Calculator View">
-                                        <rect key="frame" x="0.0" y="458" width="414" height="360"/>
+                                        <rect key="frame" x="0.0" y="452" width="414" height="360"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HXc-W0-xkv">
                                                 <rect key="frame" x="0.0" y="5" width="414" height="350"/>
@@ -66,12 +57,12 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-WC-ll7">
                                                         <rect key="frame" x="8" y="55" width="398" height="70"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD9-6U-Xil" userLabel="Digit7 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD9-6U-Xil" userLabel="Digit7 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="7">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -81,7 +72,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -97,12 +88,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-YH-Kci" userLabel="Digit8 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-YH-Kci" userLabel="Digit8 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="102" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="8">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -112,7 +103,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -128,12 +119,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIP-8s-eQ6" userLabel="Digit9 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIP-8s-eQ6" userLabel="Digit9 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="204" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="9">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -143,7 +134,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -159,12 +150,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW6-Qg-VM8" userLabel="clear Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW6-Qg-VM8" userLabel="clear Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="306" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" red="0.90929782390000002" green="0.45579457280000002" blue="0.40780544279999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="AC">
-                                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -198,16 +189,16 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Vt-HO-vPe">
                                                         <rect key="frame" x="8" y="130" width="398" height="70"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F63-f7-q2F" userLabel="Digit4 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F63-f7-q2F" userLabel="Digit4 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="4">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                         <real key="value" value="1"/>
@@ -229,12 +220,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwE-pT-wuH" userLabel="Digit5 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwE-pT-wuH" userLabel="Digit5 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="102" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="5">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -244,7 +235,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -260,12 +251,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR8-xu-Mil" userLabel="Digit6 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR8-xu-Mil" userLabel="Digit6 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="204" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="6">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -275,7 +266,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -296,7 +287,7 @@
                                                                 <color key="backgroundColor" red="0.90929782390000002" green="0.45579457280000002" blue="0.40780544279999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="Del">
-                                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -330,12 +321,12 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tK8-kp-oEB">
                                                         <rect key="frame" x="8" y="205" width="398" height="70"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKn-qD-8Me" userLabel="Digit1 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKn-qD-8Me" userLabel="Digit1 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="1">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -345,7 +336,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -361,12 +352,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-pA-r6b" userLabel="Digit2 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-pA-r6b" userLabel="Digit2 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="102" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="2">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -376,7 +367,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -392,12 +383,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kx9-UA-Ptb" userLabel="Digit3 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kx9-UA-Ptb" userLabel="Digit3 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="204" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="3">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -407,7 +398,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -423,12 +414,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KN4-yX-1Lr" userLabel="switch Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KN4-yX-1Lr" userLabel="switch Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="306" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" red="0.43573808670043945" green="0.45913159847259521" blue="0.90598279237747192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="✕">
-                                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -462,12 +453,12 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8JE-Ic-7Tc">
                                                         <rect key="frame" x="8" y="280" width="398" height="70"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzZ-fZ-RG7" userLabel="Digit0 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzZ-fZ-RG7" userLabel="Digit0 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="0">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -477,7 +468,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -493,12 +484,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyw-XN-Gi5" userLabel="Digit00 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyw-XN-Gi5" userLabel="Digit00 Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="102" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="00">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -508,7 +499,7 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                         <real key="value" value="1"/>
@@ -524,19 +515,19 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-79-gV6" userLabel="dot Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-79-gV6" userLabel="dot Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="204" y="0.0" width="92" height="70"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title=".">
-                                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <state key="disabled">
-                                                                    <color key="titleColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="titleColor" systemColor="systemGray4Color"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemGray4Color"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="10"/>
@@ -558,12 +549,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-fX-3B5" userLabel="add Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-fX-3B5" userLabel="add Btn" customClass="DesignableButton" customModule="ShoppingCalculator" customModuleProvider="target">
                                                                 <rect key="frame" x="306" y="0.0" width="92" height="70"/>
                                                                 <color key="backgroundColor" red="0.43573808670043945" green="0.45913159847259521" blue="0.90598279237747192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                                 <state key="normal" title="추가">
-                                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -609,7 +600,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="HXc-W0-xkv" secondAttribute="bottom" constant="5" id="Fyz-Ka-seh"/>
                                             <constraint firstItem="HXc-W0-xkv" firstAttribute="top" secondItem="isR-Hk-J7d" secondAttribute="top" constant="5" id="feL-ij-Mca"/>
@@ -617,17 +608,29 @@
                                             <constraint firstAttribute="trailing" secondItem="HXc-W0-xkv" secondAttribute="trailing" id="z2y-jZ-m3g"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSu-gN-GmR" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="33Y-l7-nFL"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoloadEnabled" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-9095645775931715/7613766216"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="sFf-7X-zLK" secondAttribute="trailing" id="Q02-pq-mCG"/>
                             <constraint firstItem="sFf-7X-zLK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ewM-zD-Ghy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sFf-7X-zLK" secondAttribute="bottom" id="xH8-ph-3Sk"/>
-                            <constraint firstItem="sFf-7X-zLK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zvq-ws-Lwd"/>
+                            <constraint firstItem="sFf-7X-zLK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zvq-ws-Lwd"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="WBI-r9-hW2"/>
                     <connections>
                         <outlet property="addBtn" destination="6aJ-fX-3B5" id="LKD-AR-2AJ"/>
                         <outlet property="allClearBtn" destination="IW6-Qg-VM8" id="3Fe-q3-MQs"/>
@@ -654,7 +657,71 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="-1576.8115942028987" y="105.80357142857143"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="07R-7g-xu9">
+            <size key="intrinsicContentSize" width="45" height="48"/>
+        </designable>
+        <designable name="5pt-YH-Kci">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="6aJ-fX-3B5">
+            <size key="intrinsicContentSize" width="52" height="48"/>
+        </designable>
+        <designable name="AzZ-fZ-RG7">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="F63-f7-q2F">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="FIP-8s-eQ6">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="FKn-qD-8Me">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="IW6-Qg-VM8">
+            <size key="intrinsicContentSize" width="42" height="48"/>
+        </designable>
+        <designable name="KN4-yX-1Lr">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="Kx9-UA-Ptb">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="ZwE-pT-wuH">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="cD9-6U-Xil">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="fR8-xu-Mil">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="hnr-79-gV6">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="oid-pA-r6b">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="pyw-XN-Gi5">
+            <size key="intrinsicContentSize" width="40" height="48"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

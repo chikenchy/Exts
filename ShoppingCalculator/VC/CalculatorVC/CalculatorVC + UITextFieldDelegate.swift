@@ -1,6 +1,6 @@
 import UIKit
 
-extension ViewController: UITextFieldDelegate {
+extension CalculatorVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField {

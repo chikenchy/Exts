@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="614061240" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="martItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MartItem" inverseName="history" inverseEntity="MartItem"/>
     </entity>
     <entity name="MartItem" representedClassName="MartItem" syncable="YES" codeGenerationType="class">
         <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES"/>
         <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="614061240" usesScalarValueType="NO"/>
-        <attribute name="hostoryId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="martItems" inverseEntity="History"/>
     </entity>
     <elements>
-        <element name="History" positionX="-54" positionY="-9" width="128" height="73"/>
-        <element name="MartItem" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="History" positionX="-54" positionY="-9" width="128" height="89"/>
+        <element name="MartItem" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>

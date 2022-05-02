@@ -1,7 +1,7 @@
 import UIKit
 
 
-extension ViewController: UITableViewDelegate {
+extension CalculatorVC: UITableViewDelegate {
 
 }
 
@@ -50,7 +50,7 @@ final class SumFooterView: UITableViewHeaderFooterView {
 
 }
 
-extension ViewController: UITableViewDataSource {
+extension CalculatorVC: UITableViewDataSource {
     
     func registerCells() {
         tableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "item")
