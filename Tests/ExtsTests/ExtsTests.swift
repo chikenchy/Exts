@@ -1,5 +1,5 @@
 import XCTest
-@testable import Exts
+@testable import Extensions
 @testable import MVVM
 @testable import Bases
 

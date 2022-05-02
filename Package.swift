@@ -9,7 +9,7 @@ let package = Package(
         .iOS(.v13),
     ],
     products: [
-        .library(name: "Exts", targets: ["Exts"]),
+        .library(name: "Extensions", targets: ["Extensions"]),
         .library(name: "MVVM", targets: ["MVVM"]),
         .library(name: "Bases", targets: ["Bases"]),
         .library(name: "ModalMoveable", targets: ["ModalMoveable"]),
@@ -22,13 +22,13 @@ let package = Package(
         
     ],
     targets: [
-        // targets
-        .target(name: "Exts", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
-        .target(name: "MVVM", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
+        /// targets
         .target(name: "Bases", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
-        .target(name: "ModalMoveable", dependencies: ["RxSwift", "SnapKit", "Alamofire", "Then", "Exts"]),
-        // tests
-        .testTarget(name: "ExtsTests", dependencies: ["Exts", "MVVM"]),
+        .target(name: "Extensions", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
+        .target(name: "ModalMoveable", dependencies: ["RxSwift", "SnapKit", "Alamofire", "Then", "Extensions"]),
+        .target(name: "MVVM", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
+        /// tests
+        .testTarget(name: "ExtsTests", dependencies: ["Extensions", "MVVM"]),
     ],
     swiftLanguageVersions: [.v5]
 )

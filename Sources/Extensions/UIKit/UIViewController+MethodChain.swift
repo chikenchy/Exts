@@ -2,9 +2,9 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
-    public func addNC() -> UINavigationController {
+    func addNC() -> UINavigationController {
         if let nc = self as? UINavigationController {
             return nc
         }

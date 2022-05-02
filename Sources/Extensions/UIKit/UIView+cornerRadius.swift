@@ -1,9 +1,9 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
-    public func cornerRadius(radius: CGFloat, rectCorner: UIRectCorner) {
+    func cornerRadius(radius: CGFloat, rectCorner: UIRectCorner) {
         if #available(iOS 11.0, *) {
             clipsToBounds = true
             layer.cornerRadius = radius

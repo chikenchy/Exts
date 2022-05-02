@@ -1,6 +1,6 @@
 
 import UIKit
-import Exts
+import Extensions
 
 public protocol ModalMoveable: UIViewController {
     var backdropView: UIView? { get }

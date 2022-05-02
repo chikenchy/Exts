@@ -3,19 +3,13 @@
 import UIKit
 import RxSwift
 
-open class VMTableViewCell<VM>: UITableViewCell {
+open class VMTableViewCell<VM>: UITableViewCell, VMBindable {
     open var bag = DisposeBag()
-    open var vm: VM? {
-        didSet {
-            self.bag = DisposeBag()
-            if let vm = self.vm {
-                self.bind(to: vm)
-            }
-        }
-    }
+    open private(set) var vm: VM?
     
     open func bind(to vm: VM) {
-        
+        self.vm = vm
+        self.bag = DisposeBag()
     }
 }
 

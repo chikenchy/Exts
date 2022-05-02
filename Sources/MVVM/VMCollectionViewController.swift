@@ -4,17 +4,9 @@ import UIKit
 import RxSwift
 import SnapKit
 
-open class VMCollectionViewController<VM>: UIViewController {
+open class VMCollectionViewController<VM>: UIViewController, VMBindable {
     open var bag = DisposeBag()
-    open var vm: VM? {
-        didSet {
-            self.bag = DisposeBag()
-            if let vm = self.vm,
-               self.isViewLoaded {
-                self.bind(to: vm)
-            }
-        }
-    }
+    open private(set) var vm: VM?
     public let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     open override func viewDidLoad() {
@@ -24,11 +16,15 @@ open class VMCollectionViewController<VM>: UIViewController {
         self.collectionView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     
-    open func bind(to vm: VM) { }
+    open func bind(to vm: VM) {
+        self.loadViewIfNeeded()
+        self.vm = vm
+        self.bag = DisposeBag()
+    }
     
     public convenience init(to vm: VM) {
         self.init(nibName: nil, bundle: nil)
-        self.vm = vm
+        self.bind(to: vm)
     }
     
 }

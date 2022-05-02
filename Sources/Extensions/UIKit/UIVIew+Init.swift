@@ -2,9 +2,9 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
-    public convenience init(
+    convenience init(
         alpha: CGFloat? = nil,
         autoresizesSubviews: Bool? = nil,
         autoresizingMask: AutoresizingMask? = nil,
@@ -81,7 +81,7 @@ extension UIView {
 }
 
 
-extension UILabel {
+public extension UILabel {
     
     convenience init(
         adjustsFontSizeToFitWidth: Bool? = nil,
