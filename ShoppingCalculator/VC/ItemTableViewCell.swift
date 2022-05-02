@@ -40,25 +40,17 @@ final class ItemTableViewCell: UITableViewCell {
         item = nil
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
 
 extension Double {
+    
     func removeZerosFromEnd() -> String {
-        let formatter = NumberFormatter()
+        let formatter = NumberFormatter().then {
+            $0.minimumFractionDigits = 0
+            $0.maximumFractionDigits = 16 //maximum digits in Double after dot (maximum precision)
+        }
         let number = NSNumber(value: self)
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 16 //maximum digits in Double after dot (maximum precision)
         return String(formatter.string(from: number) ?? "")
     }
+    
 }
