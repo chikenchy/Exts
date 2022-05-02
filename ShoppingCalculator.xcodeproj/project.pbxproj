@@ -33,6 +33,7 @@
 		71CD3CBB281F88CE000CED5D /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CD3CB7281F88CE000CED5D /* ItemTableViewCell.xib */; };
 		71CD3CBE281F8D0F000CED5D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 71CD3CBD281F8D0F000CED5D /* Then */; };
 		71CD3CC1281F8E95000CED5D /* CalculatorSumFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CC0281F8E95000CED5D /* CalculatorSumFooterView.swift */; };
+		71CD3CC5281FCD97000CED5D /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CC4281FCD97000CED5D /* Calculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,8 @@
 		71CD3CB6281F88CE000CED5D /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		71CD3CB7281F88CE000CED5D /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		71CD3CC0281F8E95000CED5D /* CalculatorSumFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorSumFooterView.swift; sourceTree = "<group>"; };
+		71CD3CC3281FCBAB000CED5D /* Exts */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Exts; sourceTree = "<group>"; };
+		71CD3CC4281FCD97000CED5D /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +129,7 @@
 		7172282024985B2E000F622A = {
 			isa = PBXGroup;
 			children = (
+				71CD3CC2281FCBAB000CED5D /* Packages */,
 				7172282B24985B2E000F622A /* ShoppingCalculator */,
 				7172282A24985B2E000F622A /* Products */,
 				01A3C1129458F019FFDD4306 /* Pods */,
@@ -150,6 +154,7 @@
 				71CD3CBF281F8E80000CED5D /* View */,
 				71CD3CB3281F8858000CED5D /* VC */,
 				7172284B2499DCCE000F622A /* Const.swift */,
+				71CD3CC4281FCD97000CED5D /* Calculator.swift */,
 				717228492499DC6C000F622A /* CoreDataManager.swift */,
 				7172282E24985B2E000F622A /* SceneDelegate.swift */,
 				7172283824985B2F000F622A /* Assets.xcassets */,
@@ -203,6 +208,14 @@
 				71CD3CC0281F8E95000CED5D /* CalculatorSumFooterView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		71CD3CC2281FCBAB000CED5D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				71CD3CC3281FCBAB000CED5D /* Exts */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 		DB83329F9284A5B71FA255DA /* Frameworks */ = {
@@ -351,6 +364,7 @@
 			files = (
 				711B90242677AE5700A19ED5 /* UITableViewCell + Helper.swift in Sources */,
 				71CD3CC1281F8E95000CED5D /* CalculatorSumFooterView.swift in Sources */,
+				71CD3CC5281FCD97000CED5D /* Calculator.swift in Sources */,
 				7172283124985B2E000F622A /* CalculatorVC.swift in Sources */,
 				7172283724985B2E000F622A /* ShoppingCalculator.xcdatamodeld in Sources */,
 				71CD3CB0281F84C7000CED5D /* CalculatorVC + GADBannerViewDelegate.swift in Sources */,
@@ -484,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -539,7 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -559,7 +573,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 72J2BT27K5;
 				INFOPLIST_FILE = "$(SRCROOT)/ShoppingCalculator/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,7 +596,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 72J2BT27K5;
 				INFOPLIST_FILE = "$(SRCROOT)/ShoppingCalculator/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

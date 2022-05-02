@@ -4,16 +4,11 @@ import Then
 final class CalculatorSumFooterView: UITableViewHeaderFooterView {
     var sum: String = "0" {
         didSet {
-            if #available(iOS 14.0, *) {
-                var content = self.defaultContentConfiguration()
-                content.textProperties.color = UIColor.white
-                content.textProperties.font = UIFont.boldSystemFont(ofSize: 25)
-                content.attributedText = footerAttrString()
-                self.contentConfiguration = content
-            } else {
-                self.textLabel!.attributedText = footerAttrString()
-                self.textLabel!.sizeToFit()
-            }
+            var content = self.defaultContentConfiguration()
+            content.textProperties.color = UIColor.white
+            content.textProperties.font = UIFont.boldSystemFont(ofSize: 25)
+            content.attributedText = footerAttrString()
+            self.contentConfiguration = content
         }
     }
     
@@ -54,11 +49,5 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
     }
     
     private func sharedInit() {
-        if #available(iOS 14.0, *) {
-        } else {
-            self.textLabel?.textColor = .white
-            self.textLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        }
     }
-    
 }

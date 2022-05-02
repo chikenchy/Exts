@@ -12,7 +12,8 @@ extension CalculatorVC: UITextFieldDelegate {
             textField.resignFirstResponder()
         case nameLbl:
             selectType = .name
-        default: break
+        default:
+            break
         }
     }
     
@@ -28,7 +29,8 @@ extension CalculatorVC: UITextFieldDelegate {
             return false
         case nameLbl:
             return true
-        default: return false
+        default:
+            return false
         }
     }
     
