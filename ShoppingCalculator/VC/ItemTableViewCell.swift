@@ -1,7 +1,6 @@
 import UIKit
 
 final class ItemTableViewCell: UITableViewCell {
-
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var countLbl: UILabel!

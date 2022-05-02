@@ -630,7 +630,6 @@
                             <constraint firstItem="sFf-7X-zLK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zvq-ws-Lwd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WBI-r9-hW2"/>
                     <connections>
                         <outlet property="addBtn" destination="6aJ-fX-3B5" id="LKD-AR-2AJ"/>
                         <outlet property="allClearBtn" destination="IW6-Qg-VM8" id="3Fe-q3-MQs"/>

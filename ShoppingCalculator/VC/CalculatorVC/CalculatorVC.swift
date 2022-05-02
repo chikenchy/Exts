@@ -434,7 +434,7 @@ final class CalculatorVC: UIViewController {
     }
     
     func updateSum() {
-        let sumFooterView = tableView.footerView(forSection: 0) as! SumFooterView
+        let sumFooterView = tableView.footerView(forSection: 0) as! CalculatorSumFooterView
         sumFooterView.sum = calculator.sum()
     }
     

@@ -22,7 +22,6 @@
 		717228482499D6BD000F622A /* CalculatorVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228472499D6BD000F622A /* CalculatorVC + TableView.swift */; };
 		7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228492499DC6C000F622A /* CoreDataManager.swift */; };
 		7172284C2499DCCE000F622A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284B2499DCCE000F622A /* Const.swift */; };
-		717228542499EF0F000F622A /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228532499EF0F000F622A /* UserSetting.swift */; };
 		71722856249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71722855249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift */; };
 		717E96E624A3C9170032A17A /* String + fractional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E96E524A3C9170032A17A /* String + fractional.swift */; };
 		717E96E924A47D170032A17A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 717E96EB24A47D170032A17A /* InfoPlist.strings */; };
@@ -32,6 +31,8 @@
 		71CD3CB9281F88CE000CED5D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CB5281F88CE000CED5D /* HistoryTableViewCell.swift */; };
 		71CD3CBA281F88CE000CED5D /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CB6281F88CE000CED5D /* HistoryTableViewController.swift */; };
 		71CD3CBB281F88CE000CED5D /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CD3CB7281F88CE000CED5D /* ItemTableViewCell.xib */; };
+		71CD3CBE281F8D0F000CED5D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 71CD3CBD281F8D0F000CED5D /* Then */; };
+		71CD3CC1281F8E95000CED5D /* CalculatorSumFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CC0281F8E95000CED5D /* CalculatorSumFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +54,6 @@
 		717228492499DC6C000F622A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7172284B2499DCCE000F622A /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		7172284F2499DE9D000F622A /* URL + storeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + storeURL.swift"; sourceTree = "<group>"; };
-		717228532499EF0F000F622A /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		71722855249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorVC + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		717E96E524A3C9170032A17A /* String + fractional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String + fractional.swift"; path = "ShoppingCalculator/Extentions/String + fractional.swift"; sourceTree = SOURCE_ROOT; };
 		717E96EA24A47D170032A17A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -95,6 +95,7 @@
 		71CD3CB5281F88CE000CED5D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		71CD3CB6281F88CE000CED5D /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		71CD3CB7281F88CE000CED5D /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		71CD3CC0281F8E95000CED5D /* CalculatorSumFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorSumFooterView.swift; sourceTree = "<group>"; };
 		AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				717F912826779AAE00D0881B /* SideMenu in Frameworks */,
+				71CD3CBE281F8D0F000CED5D /* Then in Frameworks */,
 				3E8FCC89C8ED8E197E10A81F /* Pods_ShoppingCalculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,11 +147,11 @@
 				715571F2249C7F4100BAD41E /* ShoppingCalculator.entitlements */,
 				7172283D24985B2F000F622A /* Info.plist */,
 				7172282C24985B2E000F622A /* AppDelegate.swift */,
+				71CD3CBF281F8E80000CED5D /* View */,
 				71CD3CB3281F8858000CED5D /* VC */,
 				7172284B2499DCCE000F622A /* Const.swift */,
 				717228492499DC6C000F622A /* CoreDataManager.swift */,
 				7172282E24985B2E000F622A /* SceneDelegate.swift */,
-				717228532499EF0F000F622A /* UserSetting.swift */,
 				7172283824985B2F000F622A /* Assets.xcassets */,
 				7172284E2499DE8F000F622A /* extentions */,
 				717E96EB24A47D170032A17A /* InfoPlist.strings */,
@@ -195,6 +197,14 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		71CD3CBF281F8E80000CED5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71CD3CC0281F8E95000CED5D /* CalculatorSumFooterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DB83329F9284A5B71FA255DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +233,7 @@
 			name = ShoppingCalculator;
 			packageProductDependencies = (
 				717F912726779AAE00D0881B /* SideMenu */,
+				71CD3CBD281F8D0F000CED5D /* Then */,
 			);
 			productName = MartCalculator;
 			productReference = 7172282924985B2E000F622A /* ShoppingCalculator.app */;
@@ -265,6 +276,7 @@
 			mainGroup = 7172282024985B2E000F622A;
 			packageReferences = (
 				717F912626779AAD00D0881B /* XCRemoteSwiftPackageReference "SideMenu" */,
+				71CD3CBC281F8D0F000CED5D /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 7172282A24985B2E000F622A /* Products */;
 			projectDirPath = "";
@@ -338,12 +350,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				711B90242677AE5700A19ED5 /* UITableViewCell + Helper.swift in Sources */,
+				71CD3CC1281F8E95000CED5D /* CalculatorSumFooterView.swift in Sources */,
 				7172283124985B2E000F622A /* CalculatorVC.swift in Sources */,
 				7172283724985B2E000F622A /* ShoppingCalculator.xcdatamodeld in Sources */,
 				71CD3CB0281F84C7000CED5D /* CalculatorVC + GADBannerViewDelegate.swift in Sources */,
 				71CD3CB8281F88CE000CED5D /* ItemTableViewCell.swift in Sources */,
 				715571F6249C7FB700BAD41E /* UIView + Designable.swift in Sources */,
-				717228542499EF0F000F622A /* UserSetting.swift in Sources */,
 				7172282D24985B2E000F622A /* AppDelegate.swift in Sources */,
 				717228482499D6BD000F622A /* CalculatorVC + TableView.swift in Sources */,
 				71CD3CB9281F88CE000CED5D /* HistoryTableViewCell.swift in Sources */,
@@ -615,6 +627,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		71CD3CBC281F8D0F000CED5D /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -622,6 +642,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 717F912626779AAD00D0881B /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		71CD3CBD281F8D0F000CED5D /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71CD3CBC281F8D0F000CED5D /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 
