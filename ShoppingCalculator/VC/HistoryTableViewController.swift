@@ -5,7 +5,19 @@ class HistoryTableViewController: UITableViewController {
     
     override var prefersStatusBarHidden: Bool { true }
     
-    let fetchedResultController: NSFetchedResultsController = NSFetchedResultsController<History>()
+    
+    lazy var fetchedResultController: NSFetchedResultsController<History> = {
+        let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
+        
+        return NSFetchedResultsController<History>(
+            fetchRequest: fetchRequest,
+            managedObjectContext: CoreDataManager.shared.context,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+    }()
+    
     
     lazy var settingButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(onSettingButtonItem))
     
@@ -13,11 +25,18 @@ class HistoryTableViewController: UITableViewController {
     @objc func onSettingButtonItem() {
         
     }
+    
+    override func loadView() {
+        super.loadView()
+
+        fetchedResultController.delegate = self
+        
+        self.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,14 +48,12 @@ class HistoryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchedResultController.delegate = self
-        
         do {
             try fetchedResultController.performFetch()
             self.tableView.reloadData()
         }
-        catch let err{
-            print(err.localizedDescription)
+        catch {
+            print(error.localizedDescription)
         }
     }
 
@@ -106,10 +123,12 @@ class HistoryTableViewController: UITableViewController {
     */
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
-        
         let history = fetchedResultController.object(at: indexPath)
-        CalculatorVC.shared.calculator.load(history: history)
+        do {
+            try CalculatorVC.shared.calculator.load(history: history)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
@@ -126,8 +145,10 @@ extension HistoryTableViewController: NSFetchedResultsControllerDelegate {
             let history = anObject as! History
             cell.textLabel?.text = history.createdAt?.description
           case .move:
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
-            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+            tableView.reloadData()
+//            tableView.deleteRows(at: [indexPath!], with: .automatic)
+//            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+            break
           @unknown default:
             print("Unexpected NSFetchedResultsChangeType")
           }

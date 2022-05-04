@@ -14,19 +14,24 @@ extension CalculatorVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sum") as! CalculatorSumFooterView
-        footerView.sum = calculator.sum()
+        footerView.sumRelay.accept(calculator.sum())
+        footerView.saveRelay
+            .bind(with: self) { `self`, _ in
+                self.calculator.save()
+            }
+            .disposed(by: footerView.bag)
         return footerView
     }
     
     func numberOfSections(in tableView: UITableView) -> Int { 1 }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        calculator.items.count
+        calculator.data?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! ItemTableViewCell
-        cell.item = calculator.items[indexPath.row]
+        cell.item = calculator.data!.items[indexPath.row]
         return cell
     }
     
@@ -36,10 +41,9 @@ extension CalculatorVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            CoreDataManager.shared.context.delete(calculator.items[indexPath.row])
-            calculator.items.remove(at: indexPath.row)
+            calculator.remove(at: indexPath.row)
             
-            tableView.deleteRows(at: [ indexPath ], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             updateSum()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -49,11 +53,12 @@ extension CalculatorVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectType = nil
         selectedItemIndexPath = indexPath
-        let item = calculator.items[indexPath.row]
         
-        name = item.name
-        price = String(item.price)
-        count = String(item.count)
+        if let item = calculator.data?.items[indexPath.row] {
+            name = item.name
+            price = item.price.description
+            count = String(item.count)
+        }
     }
     
 //    func tableView(

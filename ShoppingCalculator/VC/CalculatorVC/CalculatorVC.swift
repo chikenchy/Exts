@@ -3,6 +3,8 @@ import CoreData
 import GoogleMobileAds
 import SideMenu
 
+let userSettingServiceSingleton = UserSettingService()
+
 enum BtnType: Equatable {
     case digit(str: String)
     case allClear
@@ -45,7 +47,7 @@ final class CalculatorVC: UIViewController {
     }
     
     
-    let calculator = Calculator()
+    let calculator = Calculator(userSettingService: userSettingServiceSingleton)
     
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
@@ -94,10 +96,10 @@ final class CalculatorVC: UIViewController {
     }
     var count: String = "1" {
         didSet {
-            if Int64(count) == nil{
+            if Int(count) == nil{
                 count = "0"
             }
-            countLbl.text = "×\(Int64(count)!)"
+            countLbl.text = "×\(Int(count)!)"
         }
     }
     
@@ -113,6 +115,8 @@ final class CalculatorVC: UIViewController {
     }
     
     private func sharedInit() {
+        calculator.delegate = self
+        
         CalculatorVC.shared = self
     }
     
@@ -212,27 +216,41 @@ final class CalculatorVC: UIViewController {
             }
             
             if let selectedItemIndexPath = selectedItemIndexPath {
-                let item = calculator.items[selectedItemIndexPath.row]
-                item.count = Int64(count) ?? 0
-                item.price = Double(price) ?? 0
-                item.name = name
-                item.createdAt = Date()
+                calculator.update(
+                    at: selectedItemIndexPath.row,
+                    count: Int(count) ?? 0,
+                    price: Decimal(string: price) ?? 0,
+                    name: name
+                )
                 
                 self.selectedItemIndexPath = nil
                 
                 tableView.beginUpdates()
-                tableView.reloadRows(at: [ selectedItemIndexPath ], with: .automatic)
+                tableView.reloadRows(at: [selectedItemIndexPath], with: .automatic)
                 updateSum()
                 tableView.endUpdates()
             } else {
-                calculator.add(count: Int64(count) ?? 0, price: Double(price) ?? 0, name: name)
+                calculator.add(
+                    count: Int(count) ?? 0,
+                    price: Decimal(string: price) ?? 0,
+                    name: name
+                )
                 
-                tableView.beginUpdates()
-                tableView.insertRows(at: [IndexPath(row: calculator.items.count-1, section: 0)], with: .automatic)
-                updateSum()
-                tableView.endUpdates()
-                
-                tableView.scrollToRow(at: IndexPath(row: calculator.items.count-1, section: 0), at: UITableView.ScrollPosition(rawValue: 0)!, animated: true)
+                if let data = calculator.data {
+                    tableView.beginUpdates()
+                    tableView.insertRows(
+                        at: [IndexPath(row: data.items.count-1, section: 0)],
+                        with: .automatic
+                    )
+                    updateSum()
+                    tableView.endUpdates()
+                    
+                    tableView.scrollToRow(
+                        at: IndexPath(row: data.items.count-1, section: 0),
+                        at: UITableView.ScrollPosition(rawValue: 0)!,
+                        animated: true
+                    )
+                }
             }
             
             clearCurrent()
@@ -252,7 +270,8 @@ final class CalculatorVC: UIViewController {
                         price.removeLast()
                     }
                 }
-            default: break
+            default:
+                break
             }
         }
     }
@@ -327,8 +346,6 @@ final class CalculatorVC: UIViewController {
     override func loadView() {
         super.loadView()
         
-//        tableView.sectionFooterHeight = UITableView.automaticDimension
-        
         tableView.delegate = self
         tableView.dataSource = self
         registerCells()
@@ -374,14 +391,16 @@ final class CalculatorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let req = GADRequest()
-        bannerView.load(req)
+        let adReq = GADRequest()
+        bannerView.load(adReq)
         bannerView.isHidden = true
+        
+        
     }
     
     func updateSum() {
         let sumFooterView = tableView.footerView(forSection: 0) as! CalculatorSumFooterView
-        sumFooterView.sum = calculator.sum()
+        sumFooterView.sumRelay.accept(calculator.sum())
     }
     
 }
@@ -390,10 +409,25 @@ extension CalculatorVC {
     
     override func encodeRestorableState(with coder: NSCoder) {
         super.encodeRestorableState(with: coder)
+//        self.calculator.
+//        coder.encode(<#T##data: Data##Data#>)
     }
     
     override func decodeRestorableState(with coder: NSCoder) {
         super.decodeRestorableState(with: coder)
     }
     
+}
+
+
+extension CalculatorVC: CalculatorDelegate {
+    
+    func calculator(_ calculator: Calculator, isDirty: Bool) {
+        guard let sumFooterView = tableView.footerView(forSection: 0) as? CalculatorSumFooterView else { return }
+        sumFooterView.isDirty.accept(isDirty)
+    }
+    
+    func calculator(_ calculator: Calculator, loadedHistory: History) {
+        tableView.reloadData()
+    }
 }

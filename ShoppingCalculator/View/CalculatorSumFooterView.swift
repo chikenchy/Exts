@@ -1,34 +1,35 @@
 import UIKit
 import Then
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class CalculatorSumFooterView: UITableViewHeaderFooterView {
-    let sumLabel = UILabel().then {
-        $0.font = .preferredFont(forTextStyle: .body)
+    private let sumLabel = UILabel().then {
+        $0.font = .boldSystemFont(ofSize: 25)
         $0.textColor = .white
     }
-    let saveButton = UIButton().then {
-        $0.titleLabel?.text = "세이브"//NSLocalizedString("Save", comment: "")
-        $0.titleLabel?.font = .preferredFont(forTextStyle: .body)
-        UIFont.boldSystemFont(ofSize: 25)
-        $0.titleLabel?.textColor = .white
-//        $0.titleLabel?.sizeToFit()
+    private let saveButton = UIButton().then {
+        var configuration = UIButton.Configuration.filled()
+        configuration.baseBackgroundColor = .white
+        configuration.title = NSLocalizedString("Save", comment: "")
+        configuration.baseForegroundColor = .black
+        $0.configuration = configuration
     }
     
-    var sum: String = "0" {
-        didSet {
-            self.sumLabel.attributedText = footerAttrString()
-        }
-    }
+    var sumRelay = BehaviorRelay<Decimal>(value: 0)
+    var isButtonEnabled = BehaviorRelay<Bool>(value: false)
+    var isDirty = BehaviorRelay<Bool>(value: false)
+    var saveRelay =  PublishRelay<Void>()
+    var bag = DisposeBag()
     
-    private func footerAttrString() -> NSAttributedString? {
-        let num = NumberFormatter().number(from: sum)!
+    private func footerAttrString(sum: Decimal) -> NSAttributedString? {
         let str = NumberFormatter().then {
             $0.usesGroupingSeparator = true
             $0.numberStyle = .currency
             $0.locale = Locale.current
             $0.maximumSignificantDigits = 100
-        }.string(from: num)!
+        }.string(from: NSDecimalNumber(decimal: sum))!
         
         let array = sum.description.split(separator: ".")
         if array.count == 2 {
@@ -59,7 +60,6 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
     
     private func sharedInit() {
         contentView.backgroundColor = .black
-        
         contentView.addSubview(sumLabel)
         contentView.addSubview(saveButton)
         
@@ -72,5 +72,20 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
             make.top.bottom.equalToSuperview().inset(10)
             make.trailing.equalToSuperview().inset(10)
         }
+        
+        sumRelay
+            .map { self.footerAttrString(sum: $0) }
+            .bind(to: sumLabel.rx.attributedText)
+            .disposed(by: bag)
+        
+        saveButton.rx.tap
+            .bind(to: saveRelay)
+            .disposed(by: bag)
+        
+        // main thread가 아니면 버튼의 화면갱신이 이상하게 보이므로 driver로 바꿔주었다
+        isDirty
+            .asDriver(onErrorJustReturn: false)
+            .drive(saveButton.rx.isEnabled)
+            .disposed(by: bag)
     }
 }

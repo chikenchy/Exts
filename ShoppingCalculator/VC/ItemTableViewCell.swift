@@ -6,16 +6,16 @@ final class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var countLbl: UILabel!
     @IBOutlet weak var allPriceLbl: UILabel!
     
-    var item: MartItem? {
+    var item: MarketItem? {
         didSet {
             if let item = item {
-                let currencyFormatter = NumberFormatter()
-                currencyFormatter.numberStyle = .decimal
-                currencyFormatter.usesGroupingSeparator = true
-                currencyFormatter.maximumSignificantDigits = 100
+                let currencyFormatter = NumberFormatter().then {
+                    $0.numberStyle = .decimal
+                    $0.usesGroupingSeparator = true
+                    $0.maximumSignificantDigits = 100
+                }
                 
-                let sum = Decimal(item.count) * Decimal(item.price)
-                let allPrice = currencyFormatter.string(for: sum)!
+                let allPrice = currencyFormatter.string(for: item.sum)!
                 let price = currencyFormatter.string(for: item.price)!
                 nameLbl.text = item.name
                 priceLbl.text = price

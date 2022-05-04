@@ -10,4 +10,6 @@ target 'ShoppingCalculator' do
   pod 'SnapKit', '~> 5.6.0'
   pod 'SideMenu'
   pod 'Then'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end
