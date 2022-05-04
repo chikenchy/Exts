@@ -1,23 +1,14 @@
 import UIKit
 import Then
-import SnapKit
 
-final class CalculatorSumFooterView: UITableViewHeaderFooterView {
-    let sumLabel = UILabel().then {
-        $0.font = .preferredFont(forTextStyle: .body)
-        $0.textColor = .white
-    }
-    let saveButton = UIButton().then {
-        $0.titleLabel?.text = "세이브"//NSLocalizedString("Save", comment: "")
-        $0.titleLabel?.font = .preferredFont(forTextStyle: .body)
-        UIFont.boldSystemFont(ofSize: 25)
-        $0.titleLabel?.textColor = .white
-//        $0.titleLabel?.sizeToFit()
-    }
-    
+final class CalculatorSumFooterConfigurationView: UITableViewHeaderFooterView {
     var sum: String = "0" {
         didSet {
-            self.sumLabel.attributedText = footerAttrString()
+            var content = UIListContentConfiguration.plainFooter()
+            content.textProperties.color = UIColor.white
+            content.textProperties.font = UIFont.boldSystemFont(ofSize: 25)
+            content.attributedText = footerAttrString()
+            self.contentConfiguration = content
         }
     }
     
@@ -59,18 +50,5 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
     
     private func sharedInit() {
         contentView.backgroundColor = .black
-        
-        contentView.addSubview(sumLabel)
-        contentView.addSubview(saveButton)
-        
-        sumLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(10)
-            make.leading.equalToSuperview().inset(10)
-        }
-        
-        saveButton.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(10)
-            make.trailing.equalToSuperview().inset(10)
-        }
     }
 }

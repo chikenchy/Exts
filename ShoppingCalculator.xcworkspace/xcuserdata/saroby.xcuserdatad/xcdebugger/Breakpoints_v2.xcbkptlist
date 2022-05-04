@@ -30,8 +30,8 @@
             filePath = "ShoppingCalculator/VC/CalculatorVC/CalculatorVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "encodeRestorableState(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "ShoppingCalculator/VC/CalculatorVC/CalculatorVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "decodeRestorableState(with:)"
             landmarkType = "7">
          </BreakpointContent>

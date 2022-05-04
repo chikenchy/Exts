@@ -56,18 +56,18 @@ extension CalculatorVC: UITableViewDataSource {
         count = String(item.count)
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        willDisplayFooterView view: UIView,
-        forSection section: Int
-    ) {
-        guard let footer = view as? UITableViewHeaderFooterView else { return }
-        
-        footer.contentView.backgroundColor = .black
-        footer.textLabel?.textColor = UIColor.white
-        footer.textLabel?.font = UIFont.boldSystemFont(ofSize: 28)
-        footer.textLabel?.frame = footer.frame
-        footer.textLabel?.textAlignment = .natural
-    }
+//    func tableView(
+//        _ tableView: UITableView,
+//        willDisplayFooterView view: UIView,
+//        forSection section: Int
+//    ) {
+//        guard let footer = view as? UITableViewHeaderFooterView else { return }
+//
+//        footer.setNeedsLayout()
+//        footer.layoutIfNeeded()
+//
+//        let height = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+//        footer.frame.size = .init(width: footer.frame.width, height: height)
+//    }
     
 }

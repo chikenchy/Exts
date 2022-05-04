@@ -327,6 +327,8 @@ final class CalculatorVC: UIViewController {
     override func loadView() {
         super.loadView()
         
+//        tableView.sectionFooterHeight = UITableView.automaticDimension
+        
         tableView.delegate = self
         tableView.dataSource = self
         registerCells()

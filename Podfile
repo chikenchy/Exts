@@ -7,4 +7,7 @@ target 'ShoppingCalculator' do
 
   # Pods for ShoppingCalculator
   pod 'Google-Mobile-Ads-SDK'
+  pod 'SnapKit', '~> 5.6.0'
+  pod 'SideMenu'
+  pod 'Then'
 end
