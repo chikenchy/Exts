@@ -7,13 +7,13 @@ import RxCocoa
 final class CalculatorSumFooterView: UITableViewHeaderFooterView {
     private let sumLabel = UILabel().then {
         $0.font = .boldSystemFont(ofSize: 25)
-        $0.textColor = .white
+        $0.textColor = .systemBackground
     }
     private let saveButton = UIButton().then {
-        var configuration = UIButton.Configuration.filled()
-        configuration.baseBackgroundColor = .white
+        var configuration = UIButton.Configuration.borderless()
+        configuration.baseBackgroundColor = .label
         configuration.title = NSLocalizedString("Save", comment: "")
-        configuration.baseForegroundColor = .black
+        configuration.baseForegroundColor = .systemBackground
         $0.configuration = configuration
     }
     
@@ -42,7 +42,7 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
             return NSAttributedString(
                 string: str,
                 attributes: [
-                    NSAttributedString.Key.foregroundColor : UIColor.white
+                    NSAttributedString.Key.foregroundColor : UIColor.systemBackground
                 ]
             )
         }
@@ -59,7 +59,7 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
     }
     
     private func sharedInit() {
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = .label
         contentView.addSubview(sumLabel)
         contentView.addSubview(saveButton)
         

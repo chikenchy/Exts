@@ -49,6 +49,6 @@ final class CalculatorSumFooterConfigurationView: UITableViewHeaderFooterView {
     }
     
     private func sharedInit() {
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = .label
     }
 }

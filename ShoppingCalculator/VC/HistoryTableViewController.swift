@@ -40,11 +40,14 @@ class HistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
 //         self.clearsSelectionOnViewWillAppear = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.overrideUserInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .dark : .light
         
         do {
             try fetchedResultController.performFetch()
