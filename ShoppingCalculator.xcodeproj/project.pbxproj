@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,7 +25,7 @@
 		71722856249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71722855249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift */; };
 		717E96E624A3C9170032A17A /* String + fractional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E96E524A3C9170032A17A /* String + fractional.swift */; };
 		717E96E924A47D170032A17A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 717E96EB24A47D170032A17A /* InfoPlist.strings */; };
-		71CD3CB0281F84C7000CED5D /* CalculatorVC + GADBannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CAF281F84C7000CED5D /* CalculatorVC + GADBannerViewDelegate.swift */; };
+		71CD3CB0281F84C7000CED5D /* AdmobService + GoogleMobileAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CAF281F84C7000CED5D /* AdmobService + GoogleMobileAds.swift */; };
 		71CD3CB8281F88CE000CED5D /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CB4281F88CE000CED5D /* ItemTableViewCell.swift */; };
 		71CD3CB9281F88CE000CED5D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CB5281F88CE000CED5D /* HistoryTableViewCell.swift */; };
 		71CD3CBA281F88CE000CED5D /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CB6281F88CE000CED5D /* HistoryTableViewController.swift */; };
@@ -33,6 +33,13 @@
 		71CD3CC1281F8E95000CED5D /* CalculatorSumFooterConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CC0281F8E95000CED5D /* CalculatorSumFooterConfigurationView.swift */; };
 		71CD3CC5281FCD97000CED5D /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CC4281FCD97000CED5D /* Calculator.swift */; };
 		71CD3CC828218056000CED5D /* CalculatorSumFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD3CC728218056000CED5D /* CalculatorSumFooterView.swift */; };
+		71D0E46328240A1E0001D426 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71D0E46528240A1E0001D426 /* Localizable.strings */; };
+		71D0E469282415460001D426 /* AdmobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D0E468282415460001D426 /* AdmobService.swift */; };
+		71D0E46C28241AC50001D426 /* UserSettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D0E46B28241AC50001D426 /* UserSettingService.swift */; };
+		71D0E46F282423750001D426 /* Bases in Frameworks */ = {isa = PBXBuildFile; productRef = 71D0E46E282423750001D426 /* Bases */; };
+		71D0E471282423750001D426 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = 71D0E470282423750001D426 /* Extensions */; };
+		71D0E473282423750001D426 /* MVVM in Frameworks */ = {isa = PBXBuildFile; productRef = 71D0E472282423750001D426 /* MVVM */; };
+		71D0E475282423750001D426 /* ModalMoveable in Frameworks */ = {isa = PBXBuildFile; productRef = 71D0E474282423750001D426 /* ModalMoveable */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,7 +97,7 @@
 		717E970D24A484E20032A17A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		717E970E24A484E20032A17A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		717E970F24A484E20032A17A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		71CD3CAF281F84C7000CED5D /* CalculatorVC + GADBannerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorVC + GADBannerViewDelegate.swift"; sourceTree = "<group>"; };
+		71CD3CAF281F84C7000CED5D /* AdmobService + GoogleMobileAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdmobService + GoogleMobileAds.swift"; sourceTree = "<group>"; };
 		71CD3CB4281F88CE000CED5D /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		71CD3CB5281F88CE000CED5D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		71CD3CB6281F88CE000CED5D /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +106,11 @@
 		71CD3CC3281FCBAB000CED5D /* Exts */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Exts; sourceTree = "<group>"; };
 		71CD3CC4281FCD97000CED5D /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		71CD3CC728218056000CED5D /* CalculatorSumFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorSumFooterView.swift; sourceTree = "<group>"; };
+		71D0E46428240A1E0001D426 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		71D0E46628240A230001D426 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		71D0E46728240A320001D426 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		71D0E468282415460001D426 /* AdmobService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobService.swift; sourceTree = "<group>"; };
+		71D0E46B28241AC50001D426 /* UserSettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingService.swift; sourceTree = "<group>"; };
 		AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +120,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71D0E471282423750001D426 /* Extensions in Frameworks */,
 				3E8FCC89C8ED8E197E10A81F /* Pods_ShoppingCalculator.framework in Frameworks */,
+				71D0E475282423750001D426 /* ModalMoveable in Frameworks */,
+				71D0E473282423750001D426 /* MVVM in Frameworks */,
+				71D0E46F282423750001D426 /* Bases in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,12 +164,14 @@
 			children = (
 				715571F2249C7F4100BAD41E /* ShoppingCalculator.entitlements */,
 				7172283D24985B2F000F622A /* Info.plist */,
+				71D0E46528240A1E0001D426 /* Localizable.strings */,
 				7172282C24985B2E000F622A /* AppDelegate.swift */,
 				71CD3CBF281F8E80000CED5D /* View */,
 				71CD3CB3281F8858000CED5D /* VC */,
 				7172284B2499DCCE000F622A /* Const.swift */,
 				71CD3CC4281FCD97000CED5D /* Calculator.swift */,
 				717228492499DC6C000F622A /* CoreDataManager.swift */,
+				71D0E46A28241A950001D426 /* Service */,
 				7172282E24985B2E000F622A /* SceneDelegate.swift */,
 				7172283824985B2F000F622A /* Assets.xcassets */,
 				7172284E2499DE8F000F622A /* extentions */,
@@ -180,7 +198,6 @@
 		71CD3CB2281F8848000CED5D /* CalculatorVC */ = {
 			isa = PBXGroup;
 			children = (
-				71CD3CAF281F84C7000CED5D /* CalculatorVC + GADBannerViewDelegate.swift */,
 				717228472499D6BD000F622A /* CalculatorVC + TableView.swift */,
 				71722855249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift */,
 				7172283024985B2E000F622A /* CalculatorVC.swift */,
@@ -217,6 +234,16 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		71D0E46A28241A950001D426 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				71D0E468282415460001D426 /* AdmobService.swift */,
+				71CD3CAF281F84C7000CED5D /* AdmobService + GoogleMobileAds.swift */,
+				71D0E46B28241AC50001D426 /* UserSettingService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		DB83329F9284A5B71FA255DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +271,10 @@
 			);
 			name = ShoppingCalculator;
 			packageProductDependencies = (
+				71D0E46E282423750001D426 /* Bases */,
+				71D0E470282423750001D426 /* Extensions */,
+				71D0E472282423750001D426 /* MVVM */,
+				71D0E474282423750001D426 /* ModalMoveable */,
 			);
 			productName = MartCalculator;
 			productReference = 7172282924985B2E000F622A /* ShoppingCalculator.app */;
@@ -285,6 +316,7 @@
 			);
 			mainGroup = 7172282024985B2E000F622A;
 			packageReferences = (
+				71D0E46D282423750001D426 /* XCRemoteSwiftPackageReference "exts" */,
 			);
 			productRefGroup = 7172282A24985B2E000F622A /* Products */;
 			projectDirPath = "";
@@ -301,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7172283C24985B2F000F622A /* LaunchScreen.storyboard in Resources */,
+				71D0E46328240A1E0001D426 /* Localizable.strings in Resources */,
 				7172283924985B2F000F622A /* Assets.xcassets in Resources */,
 				7172283424985B2E000F622A /* Main.storyboard in Resources */,
 				71CD3CBB281F88CE000CED5D /* ItemTableViewCell.xib in Resources */,
@@ -362,12 +395,14 @@
 				71CD3CC5281FCD97000CED5D /* Calculator.swift in Sources */,
 				7172283124985B2E000F622A /* CalculatorVC.swift in Sources */,
 				7172283724985B2E000F622A /* ShoppingCalculator.xcdatamodeld in Sources */,
-				71CD3CB0281F84C7000CED5D /* CalculatorVC + GADBannerViewDelegate.swift in Sources */,
+				71CD3CB0281F84C7000CED5D /* AdmobService + GoogleMobileAds.swift in Sources */,
 				71CD3CB8281F88CE000CED5D /* ItemTableViewCell.swift in Sources */,
+				71D0E46C28241AC50001D426 /* UserSettingService.swift in Sources */,
 				715571F6249C7FB700BAD41E /* UIView + Designable.swift in Sources */,
 				7172282D24985B2E000F622A /* AppDelegate.swift in Sources */,
 				71CD3CC828218056000CED5D /* CalculatorSumFooterView.swift in Sources */,
 				717228482499D6BD000F622A /* CalculatorVC + TableView.swift in Sources */,
+				71D0E469282415460001D426 /* AdmobService.swift in Sources */,
 				71CD3CB9281F88CE000CED5D /* HistoryTableViewCell.swift in Sources */,
 				7172284C2499DCCE000F622A /* Const.swift in Sources */,
 				715571F8249F314700BAD41E /* UIButton + UIColor.swift in Sources */,
@@ -438,6 +473,16 @@
 				717E970F24A484E20032A17A /* ru */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		71D0E46528240A1E0001D426 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71D0E46428240A1E0001D426 /* ko */,
+				71D0E46628240A230001D426 /* en */,
+				71D0E46728240A320001D426 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -627,6 +672,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		71D0E46D282423750001D426 /* XCRemoteSwiftPackageReference "exts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chikenchy/exts";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		71D0E46E282423750001D426 /* Bases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71D0E46D282423750001D426 /* XCRemoteSwiftPackageReference "exts" */;
+			productName = Bases;
+		};
+		71D0E470282423750001D426 /* Extensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71D0E46D282423750001D426 /* XCRemoteSwiftPackageReference "exts" */;
+			productName = Extensions;
+		};
+		71D0E472282423750001D426 /* MVVM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71D0E46D282423750001D426 /* XCRemoteSwiftPackageReference "exts" */;
+			productName = MVVM;
+		};
+		71D0E474282423750001D426 /* ModalMoveable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71D0E46D282423750001D426 /* XCRemoteSwiftPackageReference "exts" */;
+			productName = ModalMoveable;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7172283524985B2E000F622A /* ShoppingCalculator.xcdatamodeld */ = {

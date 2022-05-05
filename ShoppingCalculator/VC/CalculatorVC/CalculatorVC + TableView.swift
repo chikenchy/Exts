@@ -17,7 +17,21 @@ extension CalculatorVC: UITableViewDataSource {
         footerView.sumRelay.accept(calculator.sum())
         footerView.saveRelay
             .bind(with: self) { `self`, _ in
-                self.calculator.save()
+                admobServiceSingleton.loadInterstitialIfNeeded { result in
+                    switch result {
+                    case .success(_):
+                        admobServiceSingleton.showInterstitial { result in
+                            switch result {
+                            case .success(_):
+                                self.calculator.save()
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
             }
             .disposed(by: footerView.bag)
         return footerView

@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+import SideMenu
 
 class HistoryTableViewController: UITableViewController {
     
@@ -8,7 +9,7 @@ class HistoryTableViewController: UITableViewController {
     
     lazy var fetchedResultController: NSFetchedResultsController<History> = {
         let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
         
         return NSFetchedResultsController<History>(
             fetchRequest: fetchRequest,
@@ -32,17 +33,14 @@ class HistoryTableViewController: UITableViewController {
         fetchedResultController.delegate = self
         
         self.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)
+        
+        self.navigationItem.leftBarButtonItem = self.settingButtonItem
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        
-         self.navigationItem.leftBarButtonItem = self.settingButtonItem
+//         self.clearsSelectionOnViewWillAppear = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,14 +64,23 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultController.sections?[section].numberOfObjects ?? 0
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as! HistoryTableViewCell
         
         let history = fetchedResultController.object(at: indexPath)
-        cell.textLabel?.text = history.createdAt?.description
-
+        if let createdAt = history.createdAt {
+            let formatter = RelativeDateTimeFormatter()
+            formatter.unitsStyle = .short
+            cell.textLabel?.text = formatter.localizedString(for: createdAt, relativeTo: .now)
+        }
+        
+        if let selectedHistory = CalculatorVC.shared.calculator.history {
+            if selectedHistory == history {
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            }
+        }
+        
         return cell
     }
 
@@ -128,6 +135,10 @@ class HistoryTableViewController: UITableViewController {
             try CalculatorVC.shared.calculator.load(history: history)
         } catch {
             print(error.localizedDescription)
+        }
+        
+        if let leftMenu =  SideMenuManager.default.leftMenuNavigationController {
+            leftMenu.dismiss(animated: true)
         }
     }
 }

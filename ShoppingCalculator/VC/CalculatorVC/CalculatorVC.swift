@@ -3,8 +3,6 @@ import CoreData
 import GoogleMobileAds
 import SideMenu
 
-let userSettingServiceSingleton = UserSettingService()
-
 enum BtnType: Equatable {
     case digit(str: String)
     case allClear
@@ -121,11 +119,23 @@ final class CalculatorVC: UIViewController {
     }
     
     func allClear() {
-        let vc = UIAlertController(title: nil, message: "전체 삭제하시겠습니까?", preferredStyle: .alert)
-        vc.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
-            self.clearAll()
-        }))
-        vc.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        let vc = UIAlertController(
+            title: nil,
+            message: NSLocalizedString("ACPopupDesc", comment: ""),
+            preferredStyle: .alert
+        )
+        vc.addAction(UIAlertAction(
+            title: NSLocalizedString("OK", comment: ""),
+            style: .default,
+            handler: { (action) in
+                self.clearAll()
+            }
+        ))
+        vc.addAction(UIAlertAction(
+            title: NSLocalizedString("Cancel", comment: ""),
+            style: .cancel,
+            handler: nil
+        ))
         present(vc, animated: true, completion: nil)
     }
     
@@ -376,7 +386,7 @@ final class CalculatorVC: UIViewController {
         allClearBtn.addTarget(self, action: #selector(onTouchUpInside_Btn), for: .touchUpInside)
         
         bannerView.rootViewController = self
-        bannerView.delegate = self
+        bannerView.delegate = admobServiceSingleton
         
         // setup SideMenu
         let sideVC = HistoryTableViewController()
@@ -391,11 +401,8 @@ final class CalculatorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let adReq = GADRequest()
-        bannerView.load(adReq)
+        bannerView.load(GADRequest())
         bannerView.isHidden = true
-        
-        
     }
     
     func updateSum() {

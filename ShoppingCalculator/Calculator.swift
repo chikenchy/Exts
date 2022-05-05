@@ -1,15 +1,6 @@
 import Foundation
 
 
-class UserSettingService: Codable {
-    var currencyCode: String {
-        get { userCurrencyCode ?? (Locale.current.currencyCode ?? "") }
-    }
-    
-    var userCurrencyCode: String?
-}
-
-
 struct MarketItem: Codable {
     var count: Int
     var price: Decimal
@@ -97,6 +88,11 @@ final class Calculator {
     
     func remove(at: Int) {
         data?.items.remove(at: at)
+        
+        if !isDirty {
+            isDirty.toggle()
+            delegate?.calculator(self, isDirty: isDirty)
+        }
     }
     
     func sum() -> Decimal {
@@ -121,7 +117,7 @@ final class Calculator {
     func save() {
         guard isDirty else { return }
         guard let data = data else { return }
-
+        
         if let history = history {
             history.updatedAt = Date()
         } else {
@@ -141,7 +137,7 @@ final class Calculator {
         }
         
         history?.willSave()
-//        CoreDataManager.shared.saveContext()
+        CoreDataManager.shared.saveContext()
         
         if isDirty {
             isDirty.toggle()

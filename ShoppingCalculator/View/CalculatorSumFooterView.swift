@@ -74,18 +74,25 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
         }
         
         sumRelay
-            .map { self.footerAttrString(sum: $0) }
-            .bind(to: sumLabel.rx.attributedText)
+            .bind(with: self) { `self`, sum in
+                self.sumLabel.attributedText = self.footerAttrString(sum: sum)
+            }
             .disposed(by: bag)
         
         saveButton.rx.tap
             .bind(to: saveRelay)
             .disposed(by: bag)
         
-        // main thread가 아니면 버튼의 화면갱신이 이상하게 보이므로 driver로 바꿔주었다
-        isDirty
-            .asDriver(onErrorJustReturn: false)
-            .drive(saveButton.rx.isEnabled)
+        let sharedIsDirty = isDirty.share()
+        sharedIsDirty
+            .bind(to: saveButton.rx.isEnabled)
+            .disposed(by: bag)
+        
+        // 버튼의 화면갱신이 이상하게 보이므로 강제 갱신
+        sharedIsDirty
+            .bind(with: self) { `self`, _ in
+                self.contentView.superview?.layoutIfNeeded()
+            }
             .disposed(by: bag)
     }
 }

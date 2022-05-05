@@ -1,7 +1,7 @@
 import Foundation
 import GoogleMobileAds
 
-extension CalculatorVC: GADBannerViewDelegate {
+extension AdmobService: GADBannerViewDelegate {
     
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         bannerView.isHidden = false
@@ -22,3 +22,23 @@ extension CalculatorVC: GADBannerViewDelegate {
     func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {}
     
 }
+
+extension AdmobService: GADFullScreenContentDelegate {
+    
+    func adDidRecordClick(_ ad: GADFullScreenPresentingAd) {}
+    
+    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {}
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {}
+    
+    func adWillDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {}
+    
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {}
+    
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
+
+
