@@ -5,6 +5,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        if let userDefault = UserSettingService.loadFromUserDefault() {
+            userSettingServiceSingleton = userDefault
+        }
+        
         admobServiceSingleton.setup()
         
         return true
@@ -27,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         coreDataServiceSingleton.trySaveContext()
+        userSettingServiceSingleton.saveToUserDefault()
     }
 }
 

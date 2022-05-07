@@ -9,12 +9,36 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
         $0.font = .boldSystemFont(ofSize: 25)
         $0.textColor = .systemBackground
     }
-    private let saveButton = UIButton().then {
-        var configuration = UIButton.Configuration.borderless()
-        configuration.baseBackgroundColor = .label
-        configuration.title = NSLocalizedString("Save", comment: "")
-        configuration.baseForegroundColor = .systemBackground
+    private let saveButton =  UIButton(type: .system).then {
+        var configuration = UIButton.Configuration.gray()
+        configuration.contentInsets = .init(top: 7, leading: 7, bottom: 7, trailing: 7)
+        configuration.cornerStyle = .large
+        var attributedTitle = AttributedString(NSLocalizedString("Save", comment: ""))
+        attributedTitle.font = .systemFont(ofSize: 17, weight: .semibold)
+        configuration.attributedTitle = attributedTitle
         $0.configuration = configuration
+        $0.configurationUpdateHandler = { button in
+            guard var configuration = button.configuration else { return }
+            
+            switch button.state {
+            case .normal:
+                configuration.background.backgroundColor = .systemBackground
+                configuration.baseForegroundColor = .label
+                configuration.image = UIImage(systemName: "bookmark")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            case .disabled:
+                configuration.background.backgroundColor = .label
+                configuration.background.strokeColor = .systemGray.withAlphaComponent(0.3)
+                configuration.baseForegroundColor = .systemGray
+                configuration.image = UIImage(systemName: "bookmark.fill")
+            case .highlighted:
+                configuration.image = UIImage(systemName: "bookmark.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            default:
+                break
+            }
+            
+            button.configuration = configuration
+            button.updateConfiguration()
+        }
     }
     var currencyCode: String?
     var sumRelay = BehaviorRelay<Decimal>(value: 0)
