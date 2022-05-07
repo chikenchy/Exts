@@ -14,6 +14,7 @@ extension CalculatorVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sum") as! CalculatorSumFooterView
+        footerView.currencyCode = currencyCode
         footerView.sumRelay.accept(calculator.sum())
         footerView.saveRelay
             .bind(with: self) { `self`, _ in

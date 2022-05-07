@@ -16,7 +16,7 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
         configuration.baseForegroundColor = .systemBackground
         $0.configuration = configuration
     }
-    
+    var currencyCode: String?
     var sumRelay = BehaviorRelay<Decimal>(value: 0)
     var isButtonEnabled = BehaviorRelay<Bool>(value: false)
     var isDirty = BehaviorRelay<Bool>(value: false)
@@ -28,6 +28,7 @@ final class CalculatorSumFooterView: UITableViewHeaderFooterView {
             $0.usesGroupingSeparator = true
             $0.numberStyle = .currency
             $0.locale = Locale.current
+            $0.currencyCode = currencyCode
             $0.maximumSignificantDigits = 100
         }.string(from: NSDecimalNumber(decimal: sum))!
         

@@ -13,7 +13,7 @@ struct MarketItem: Codable {
 
 struct HistoryData: Codable {
     var items: [MarketItem]
-    var commonISOCurrencyCode: String // Locale.commonISOCurrencyCodes
+    var currencyCode: String // Locale.commonISOCurrencyCodes
 }
 
 protocol CalculatorDelegate: AnyObject {
@@ -24,13 +24,18 @@ protocol CalculatorDelegate: AnyObject {
 final class Calculator {
     weak var delegate: CalculatorDelegate?
     private var userSettingService: UserSettingService
+    private var coreDataService: CoreDataService
     private(set) var data: HistoryData?
     private(set) var history: History?
     private(set) var isDirty = false
     
     
-    init(userSettingService: UserSettingService) {
+    init(
+        userSettingService: UserSettingService,
+        coreDataService: CoreDataService
+    ) {
         self.userSettingService = userSettingService
+        self.coreDataService = coreDataService
     }
     
     func load(history: History) throws {
@@ -61,7 +66,7 @@ final class Calculator {
         if data == nil {
             data = .init(
                 items: [addItem],
-                commonISOCurrencyCode: userSettingService.currencyCode
+                currencyCode: userSettingService.currencyCode
             )
         } else {
             data!.items.append(addItem)
@@ -121,7 +126,7 @@ final class Calculator {
         if let history = history {
             history.updatedAt = Date()
         } else {
-            let history = History(context: CoreDataManager.shared.context).then {
+            let history = History(context: coreDataServiceSingleton.context).then {
                 $0.id = UUID()
                 $0.createdAt = Date()
             }
@@ -137,7 +142,7 @@ final class Calculator {
         }
         
         history?.willSave()
-        CoreDataManager.shared.saveContext()
+        coreDataService.trySaveContext()
         
         if isDirty {
             isDirty.toggle()

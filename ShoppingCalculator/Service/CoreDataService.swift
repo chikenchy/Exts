@@ -1,9 +1,9 @@
 import Foundation
 import CoreData
 
-final class CoreDataManager {
-    static var shared = CoreDataManager()
+let coreDataServiceSingleton = CoreDataService()
 
+final class CoreDataService {
     lazy var context = persistentContainer.viewContext
     
     // MARK: - CoreData
@@ -18,7 +18,7 @@ final class CoreDataManager {
         return container
     }()
     
-    func saveContext () {
+    func trySaveContext () {
         if context.hasChanges {
             do {
                 try context.save()

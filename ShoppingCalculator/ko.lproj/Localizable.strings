@@ -2,3 +2,6 @@
 "ACPopupDesc" = "현제 데이터를 삭제하시겠습니까?";
 "OK" = "확인";
 "Cancel" = "취소";
+"Settings" = "설정";
+"CurrencySetting" = "화폐 설정";
+"DeviceSettingCurrency" = "기기 설정 화폐";

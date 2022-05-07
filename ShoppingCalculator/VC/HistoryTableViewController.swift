@@ -13,7 +13,7 @@ class HistoryTableViewController: UITableViewController {
         
         return NSFetchedResultsController<History>(
             fetchRequest: fetchRequest,
-            managedObjectContext: CoreDataManager.shared.context,
+            managedObjectContext: coreDataServiceSingleton.context,
             sectionNameKeyPath: nil,
             cacheName: nil
         )
@@ -23,8 +23,17 @@ class HistoryTableViewController: UITableViewController {
     lazy var settingButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(onSettingButtonItem))
     
     
-    @objc func onSettingButtonItem() {
+    @objc private func onSettingButtonItem() {
+        if let leftMenu =  SideMenuManager.default.leftMenuNavigationController {
+            leftMenu.dismiss(animated: false)
+        }
+        if let rightMenu =  SideMenuManager.default.rightMenuNavigationController {
+            rightMenu.dismiss(animated: false)
+        }
         
+        let settingVC = SettingsVC()
+        
+        CalculatorVC.shared.navigationController!.pushViewController(settingVC, animated: true)
     }
     
     override func loadView() {

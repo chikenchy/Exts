@@ -38,14 +38,16 @@ final class CalculatorVC: UIViewController {
     
     private func updateDotBtn() {
         if selectType == .price {
-            dotBtn.isEnabled = price.contains(".") == false
+            dotBtn.isEnabled = !price.contains(".")
         } else {
             dotBtn.isEnabled = false
         }
     }
     
-    
-    let calculator = Calculator(userSettingService: userSettingServiceSingleton)
+    let calculator = Calculator(
+        userSettingService: userSettingServiceSingleton,
+        coreDataService: coreDataServiceSingleton
+    )
     
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
@@ -79,15 +81,21 @@ final class CalculatorVC: UIViewController {
         set { nameLbl.text = newValue }
     }
     
+    var currencyCode: String {
+        if let currencyCode = calculator.data?.currencyCode {
+            return currencyCode
+        } else {
+            return userSettingServiceSingleton.currencyCode
+        }
+    }
+    
+    var currencySymbol: String {
+        return Locale.current.currencySymbol(currencyCode: currencyCode)!
+    }
+    
     var price: String = "0" {
         didSet {
-            let currencyFormatter = NumberFormatter()
-            currencyFormatter.usesGroupingSeparator = true
-            currencyFormatter.numberStyle = .currency
-            currencyFormatter.locale = Locale.current
-            currencyFormatter.maximumSignificantDigits = 100
-            
-            priceLbl.text = "\(currencyFormatter.currencySymbol!)\(price)"
+            priceLbl.text = "\(currencySymbol)\(price)"
             
             updateDotBtn()
         }
@@ -157,7 +165,7 @@ final class CalculatorVC: UIViewController {
             btnType = .clear
         case "AC":
             btnType = .allClear
-        case "$":
+        case currencySymbol:
             btnType = .price
         case "×":
             btnType = .count
@@ -293,13 +301,14 @@ final class CalculatorVC: UIViewController {
     }
     
     private func clearAll() {
-        clearCurrent()
         calculator.clear()
+        clearCurrent()
         tableView.reloadData()
         if let selectedItemIndexPath = selectedItemIndexPath {
             tableView.deselectRow(at: selectedItemIndexPath, animated: false)
             self.selectedItemIndexPath = nil
         }
+        selectType = nil
     }
     
     var selectType: SelectType? {
@@ -323,14 +332,14 @@ final class CalculatorVC: UIViewController {
                 priceLbl.backgroundColor = .clear
                 countLbl.backgroundColor = .systemFill
             } else if selectType == .name {
-                priceOrCountBtn.setTitle("$", for: .normal)
+                priceOrCountBtn.setTitle(currencySymbol, for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
                 
                 nameLbl.backgroundColor = .systemFill
                 priceLbl.backgroundColor = .clear
                 countLbl.backgroundColor = .clear
             } else {
-                priceOrCountBtn.setTitle("$", for: .normal)
+                priceOrCountBtn.setTitle(currencySymbol, for: .normal)
                 priceOrCountBtn.titleLabel!.sizeToFit()
                 
                 nameLbl.backgroundColor = .clear
@@ -401,8 +410,10 @@ final class CalculatorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bannerView.load(GADRequest())
-        bannerView.isHidden = true
+        bannerView.do {
+            $0.load(GADRequest())
+            $0.isHidden = true
+        }
     }
     
     func updateSum() {
@@ -436,5 +447,9 @@ extension CalculatorVC: CalculatorDelegate {
     
     func calculator(_ calculator: Calculator, loadedHistory: History) {
         tableView.reloadData()
+        
+        selectType = nil
+        selectedItemIndexPath = nil
+        clearCurrent()
     }
 }

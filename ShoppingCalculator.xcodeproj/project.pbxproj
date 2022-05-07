@@ -20,7 +20,7 @@
 		7172283924985B2F000F622A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7172283824985B2F000F622A /* Assets.xcassets */; };
 		7172283C24985B2F000F622A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7172283A24985B2F000F622A /* LaunchScreen.storyboard */; };
 		717228482499D6BD000F622A /* CalculatorVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228472499D6BD000F622A /* CalculatorVC + TableView.swift */; };
-		7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228492499DC6C000F622A /* CoreDataManager.swift */; };
+		7172284A2499DC6C000F622A /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717228492499DC6C000F622A /* CoreDataService.swift */; };
 		7172284C2499DCCE000F622A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172284B2499DCCE000F622A /* Const.swift */; };
 		71722856249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71722855249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift */; };
 		717E96E624A3C9170032A17A /* String + fractional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E96E524A3C9170032A17A /* String + fractional.swift */; };
@@ -40,6 +40,7 @@
 		71D0E471282423750001D426 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = 71D0E470282423750001D426 /* Extensions */; };
 		71D0E473282423750001D426 /* MVVM in Frameworks */ = {isa = PBXBuildFile; productRef = 71D0E472282423750001D426 /* MVVM */; };
 		71D0E475282423750001D426 /* ModalMoveable in Frameworks */ = {isa = PBXBuildFile; productRef = 71D0E474282423750001D426 /* ModalMoveable */; };
+		71D0E477282577D90001D426 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D0E476282577D90001D426 /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +59,7 @@
 		7172283B24985B2F000F622A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7172283D24985B2F000F622A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		717228472499D6BD000F622A /* CalculatorVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorVC + TableView.swift"; sourceTree = "<group>"; };
-		717228492499DC6C000F622A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		717228492499DC6C000F622A /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		7172284B2499DCCE000F622A /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		7172284F2499DE9D000F622A /* URL + storeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + storeURL.swift"; sourceTree = "<group>"; };
 		71722855249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorVC + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		71D0E46728240A320001D426 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71D0E468282415460001D426 /* AdmobService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobService.swift; sourceTree = "<group>"; };
 		71D0E46B28241AC50001D426 /* UserSettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingService.swift; sourceTree = "<group>"; };
+		71D0E476282577D90001D426 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,7 +172,6 @@
 				71CD3CB3281F8858000CED5D /* VC */,
 				7172284B2499DCCE000F622A /* Const.swift */,
 				71CD3CC4281FCD97000CED5D /* Calculator.swift */,
-				717228492499DC6C000F622A /* CoreDataManager.swift */,
 				71D0E46A28241A950001D426 /* Service */,
 				7172282E24985B2E000F622A /* SceneDelegate.swift */,
 				7172283824985B2F000F622A /* Assets.xcassets */,
@@ -213,6 +214,7 @@
 				71CD3CB4281F88CE000CED5D /* ItemTableViewCell.swift */,
 				71CD3CB7281F88CE000CED5D /* ItemTableViewCell.xib */,
 				71CD3CB2281F8848000CED5D /* CalculatorVC */,
+				71D0E476282577D90001D426 /* SettingsVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -237,6 +239,7 @@
 		71D0E46A28241A950001D426 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				717228492499DC6C000F622A /* CoreDataService.swift */,
 				71D0E468282415460001D426 /* AdmobService.swift */,
 				71CD3CAF281F84C7000CED5D /* AdmobService + GoogleMobileAds.swift */,
 				71D0E46B28241AC50001D426 /* UserSettingService.swift */,
@@ -406,10 +409,11 @@
 				71CD3CB9281F88CE000CED5D /* HistoryTableViewCell.swift in Sources */,
 				7172284C2499DCCE000F622A /* Const.swift in Sources */,
 				715571F8249F314700BAD41E /* UIButton + UIColor.swift in Sources */,
-				7172284A2499DC6C000F622A /* CoreDataManager.swift in Sources */,
+				7172284A2499DC6C000F622A /* CoreDataService.swift in Sources */,
 				717E96E624A3C9170032A17A /* String + fractional.swift in Sources */,
 				71CD3CBA281F88CE000CED5D /* HistoryTableViewController.swift in Sources */,
 				715571F4249C7F9900BAD41E /* URL + storeURL.swift in Sources */,
+				71D0E477282577D90001D426 /* SettingsVC.swift in Sources */,
 				71722856249A3A2E000F622A /* CalculatorVC + UITextFieldDelegate.swift in Sources */,
 				7172282F24985B2E000F622A /* SceneDelegate.swift in Sources */,
 			);
