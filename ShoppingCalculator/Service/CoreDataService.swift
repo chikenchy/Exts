@@ -18,7 +18,7 @@ final class CoreDataService {
         return container
     }()
     
-    func trySaveContext () {
+    func trySaveContext() {
         if context.hasChanges {
             do {
                 try context.save()
@@ -31,5 +31,23 @@ final class CoreDataService {
     
     func reset() {
         context.reset()
+    }
+    
+    func deleteAll() {
+        let entities = persistentContainer.managedObjectModel.entities
+        for entitie in entities {
+            delete(entityName: entitie.name!)
+        }
+    }
+    
+    private func delete(entityName: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(deleteRequest)
+        } catch let error as NSError {
+            debugPrint("Delete ERROR \(entityName)")
+            debugPrint(error)
+        }
     }
 }

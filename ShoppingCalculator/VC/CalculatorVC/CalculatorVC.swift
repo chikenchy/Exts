@@ -300,7 +300,7 @@ final class CalculatorVC: UIViewController {
         name = nil
     }
     
-    private func clearAll() {
+    func clearAll() {
         calculator.clear()
         clearCurrent()
         tableView.reloadData()

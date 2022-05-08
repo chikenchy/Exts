@@ -70,10 +70,15 @@ final class UserSettingService {
             print(error.localizedDescription)
         }
         
-        
         if !UserDefaults.standard.synchronize() {
             print("saveToUserDefault synchronize failure")
         }
+    }
+    
+    func reset() {
+        userSetting = .init()
+        coreDataServiceSingleton.deleteAll()
+        CalculatorVC.shared.clearAll()
     }
 }
 
