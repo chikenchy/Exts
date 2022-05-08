@@ -5,3 +5,6 @@
 "Settings" = "설정";
 "CurrencySetting" = "화폐 설정";
 "DeviceSettingCurrency" = "기기 설정 화폐";
+"Sort" = "정렬";
+"CreatedDate" = "생성일";
+"UpdateDate" = "갱신일";

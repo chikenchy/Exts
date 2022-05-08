@@ -3,38 +3,67 @@ import Foundation
 var userSettingServiceSingleton = UserSettingService()
 
 
-
-class UserSettingService: Codable {
-    var useDeviceCurrency: Bool = true
-    var userCurrencyCode: String? = nil
+enum HistorySortColumn: String, Codable, Equatable, CustomStringConvertible {
+    case createdAt
+    case updatedAt
     
-    var currencyCode: String {
-        get { userCurrencyCode ?? (Locale.current.currencyCode ?? "") }
+    var description: String {
+        switch self {
+        case .createdAt:
+            return NSLocalizedString("CreatedDate", comment: "")
+        case .updatedAt:
+            return NSLocalizedString("UpdateDate", comment: "")
+        }
     }
 }
 
-extension UserSettingService {
+enum HistorySortOrder: Int, Codable, Equatable, CustomStringConvertible {
+    case acs
+    case desc
     
-    class func loadFromUserDefault() -> UserSettingService? {
+    var description: String {
+        switch self {
+        case .acs:
+            return "오름차순"
+        case .desc:
+            return "내림차순"
+        }
+    }
+}
+
+struct UserSetting: Codable {
+    var useDeviceCurrency: Bool = true
+    var userCurrencyCode: String? = nil
+    var sortColumn: HistorySortColumn = .createdAt
+    var sortOrder: HistorySortOrder = .acs
+}
+
+final class UserSettingService {
+    var userSetting = UserSetting()
+    
+    var currencyCode: String {
+        get { userSetting.userCurrencyCode ?? (Locale.current.currencyCode ?? "") }
+    }
+    
+    func loadFromUserDefault() {
         guard let value = UserDefaults.standard.value(forKey: "UserSettings"),
               let data = value as? Data
         else {
             print("loadFromUserDefault UserDefaults failure")
-            return nil
+            return
         }
         
         do {
-            let userSettings = try PropertyListDecoder().decode(UserSettingService.self, from: data)
-            return userSettings
+            let userSetting = try PropertyListDecoder().decode(UserSetting.self, from: data)
+            self.userSetting = userSetting
         } catch {
             print(error.localizedDescription)
-            return nil
         }
     }
     
     func saveToUserDefault() {
         do {
-            let encoded = try PropertyListEncoder().encode(self)
+            let encoded = try PropertyListEncoder().encode(userSetting)
             
             UserDefaults.standard.setValue(encoded, forKey: "UserSettings")
         } catch {

@@ -5,4 +5,7 @@
 "Settings" = "Settings";
 "CurrencySetting" = "Currency Setting";
 "DeviceSettingCurrency" = "Device setting currency";
-
+"HistorySetting" = "History Setting";
+"Sort" = "Sort";
+"CreatedDate" = "Created Date";
+"UpdateDate" = "Updated Date";
