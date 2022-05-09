@@ -1,5 +1,6 @@
 import UIKit
 import Then
+import SwiftRater
 
 extension CalculatorVC: UITableViewDelegate {
     
@@ -18,20 +19,29 @@ extension CalculatorVC: UITableViewDataSource {
         footerView.sumRelay.accept(calculator.sum())
         footerView.saveRelay
             .bind(with: self) { `self`, _ in
-                admobServiceSingleton.loadInterstitialIfNeeded { result in
-                    switch result {
-                    case .success(_):
-                        admobServiceSingleton.showInterstitial { result in
-                            switch result {
-                            case .success(_):
-                                self.calculator.save()
-                            case .failure(let error):
-                                print(error.localizedDescription)
+                guard !SwiftRater.check() else {
+                    SwiftRater.incrementSignificantUsageCount()
+                    return
+                }
+                
+                if Bool.random() {
+                    admobServiceSingleton.loadInterstitialIfNeeded { result in
+                        switch result {
+                        case .success(_):
+                            admobServiceSingleton.showInterstitial { result in
+                                switch result {
+                                case .success(_):
+                                    self.calculator.save()
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                }
                             }
+                        case .failure(let error):
+                            print(error.localizedDescription)
                         }
-                    case .failure(let error):
-                        print(error.localizedDescription)
                     }
+                } else {
+                    self.calculator.save()
                 }
             }
             .disposed(by: footerView.bag)

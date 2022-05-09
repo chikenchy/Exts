@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import SwiftRater
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,6 +10,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         userSettingServiceSingleton.loadFromUserDefault()
         admobServiceSingleton.setup()
+        
+        SwiftRater.daysUntilPrompt = 7
+        SwiftRater.usesUntilPrompt = 10
+        SwiftRater.significantUsesUntilPrompt = 5
+        SwiftRater.daysBeforeReminding = 1
+        SwiftRater.showLaterButton = true
+//        SwiftRater.debugMode = true
+        SwiftRater.appLaunched()
         
         return true
     }

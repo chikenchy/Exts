@@ -13,4 +13,5 @@ target 'ShoppingCalculator' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Eureka'
+  pod "SwiftRater"
 end
