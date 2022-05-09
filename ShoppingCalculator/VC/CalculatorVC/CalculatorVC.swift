@@ -136,9 +136,6 @@ final class CalculatorVC: UIViewController {
             title: NSLocalizedString("OK", comment: ""),
             style: .default,
             handler: { (action) in
-                let numbers = [0]
-                let _ = numbers[1]
-                
                 self.clearAll()
             }
         ))
