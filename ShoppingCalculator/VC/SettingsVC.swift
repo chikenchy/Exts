@@ -70,7 +70,7 @@ final class SettingsVC: FormViewController {
         }
         
         +++ Section(NSLocalizedString("HistorySetting", comment: ""))
-        <<< DoublePickerInlineRow<HistorySortColumn, HistorySortOrder>() {
+        <<< DoublePickerInlineRow<HistorySortColumn, HistorySortOrder>("Sort") {
             $0.title = NSLocalizedString("Sort", comment: "")
             $0.firstOptions = { () -> [HistorySortColumn] in
                 return [
@@ -152,6 +152,10 @@ final class SettingsVC: FormViewController {
     private func reset() {
         userSettingServiceSingleton.reset()
         userSettingServiceSingleton.saveToUserDefault()
+        
+        if let sortRow = self.form.rowBy(tag: "Sort") as? DoublePickerInlineRow<HistorySortColumn, HistorySortOrder> {
+            sortRow.collapseInlineRow()
+        }
         
         self.form.allRows.forEach {
             $0.updateCell()
