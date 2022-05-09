@@ -136,6 +136,9 @@ final class CalculatorVC: UIViewController {
             title: NSLocalizedString("OK", comment: ""),
             style: .default,
             handler: { (action) in
+                let numbers = [0]
+                let _ = numbers[1]
+                
                 self.clearAll()
             }
         ))
@@ -407,12 +410,29 @@ final class CalculatorVC: UIViewController {
         SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.view)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        bannerView.do {
-            $0.load(GADRequest())
-            $0.isHidden = true
+        admobServiceSingleton.requestTrackingAuthorization() { [unowned self] status in
+            switch status {
+            case .authorized:
+                print("authorized")
+            case .denied:
+                print("denied")
+            case .notDetermined:
+                print("notDetermined")
+            case .restricted:
+                print("restricted")
+            @unknown default:
+                break
+            }
+            
+            DispatchQueue.main.async {
+                self.bannerView.do {
+                    $0.load(GADRequest())
+                    $0.isHidden = true
+                }
+            }
         }
     }
     

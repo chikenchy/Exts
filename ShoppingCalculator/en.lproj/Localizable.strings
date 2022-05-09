@@ -1,5 +1,6 @@
 "Save" = "Save";
-"ACPopupDesc" = "Do you want to reset?";
+"ACPopupDesc" = "Are you sure you want to delete the current calculation?";
+"ResetPopupDesc" = "Do you want to reset?";
 "OK" = "OK";
 "Cancel" = "Cancel";
 "Settings" = "Settings";

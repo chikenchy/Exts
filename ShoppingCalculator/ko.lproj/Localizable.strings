@@ -1,5 +1,6 @@
 "Save" = "저장";
-"ACPopupDesc" = "초기화하시겠습니까?";
+"ACPopupDesc" = "현재 계산을 지우시겠습니까?";
+"ResetPopupDesc" = "초기화하시겠습니까?";
 "OK" = "확인";
 "Cancel" = "취소";
 "Settings" = "설정";

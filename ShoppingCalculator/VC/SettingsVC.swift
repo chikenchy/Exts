@@ -120,7 +120,7 @@ final class SettingsVC: FormViewController {
         .onCellSelection { [weak self] (cell, row) in
             let alert = UIAlertController(
                 title: nil,
-                message: "초기화하시겠습니까?",
+                message: NSLocalizedString("ResetPopupDesc", comment: ""),
                 preferredStyle: UIAlertController.Style.alert
             ).then { alert in
                 alert.addAction(.init(title: "OK", style: .destructive) { _ in

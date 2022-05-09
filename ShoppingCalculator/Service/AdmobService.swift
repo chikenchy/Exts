@@ -1,6 +1,7 @@
 import Foundation
 import GoogleMobileAds
 import Extensions
+import AppTrackingTransparency
 
 let admobServiceSingleton = AdmobService()
 
@@ -74,5 +75,11 @@ final class AdmobService: NSObject {
         
         interstitial?.present(fromRootViewController: topVC)
         completion?(.success(ad))
+    }
+    
+    func requestTrackingAuthorization(completion: ((ATTrackingManager.AuthorizationStatus) -> Void)?) {
+        ATTrackingManager.requestTrackingAuthorization { status in
+            completion?(status)
+        }
     }
 }
