@@ -1,8 +1,5 @@
 import Foundation
 
-var userSettingServiceSingleton = UserSettingService()
-
-
 enum HistorySortColumn: String, Codable, Equatable, CustomStringConvertible {
     case createdAt
     case updatedAt

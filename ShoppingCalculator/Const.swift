@@ -8,3 +8,9 @@ class Const {
 extension NSNotification.Name {
     public static let HistorySettingChanged = NSNotification.Name("HistorySettingChanged")
 }
+
+
+var userSettingServiceSingleton = UserSettingService()
+let coreDataServiceSingleton = CoreDataService()
+let admobServiceSingleton = AdmobService()
+let appRatingServiceSingleton = AppRatingService()

@@ -1,8 +1,6 @@
 import Foundation
 import CoreData
 
-let coreDataServiceSingleton = CoreDataService()
-
 final class CoreDataService {
     lazy var context = persistentContainer.viewContext
     

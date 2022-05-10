@@ -43,6 +43,7 @@
 		71D0E477282577D90001D426 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D0E476282577D90001D426 /* SettingsVC.swift */; };
 		71D0E4792829686E0001D426 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71D0E4782829686E0001D426 /* GoogleService-Info.plist */; };
 		71D0E47C282969240001D426 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 71D0E47B282969240001D426 /* FirebaseAnalytics */; };
+		71D0E4852829F0320001D426 /* AppRatingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D0E4842829F0320001D426 /* AppRatingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		71D0E46B28241AC50001D426 /* UserSettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingService.swift; sourceTree = "<group>"; };
 		71D0E476282577D90001D426 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		71D0E4782829686E0001D426 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		71D0E4842829F0320001D426 /* AppRatingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRatingService.swift; sourceTree = "<group>"; };
 		AA5F3F165C52F6F150945A05 /* Pods-ShoppingCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		C7A2CE878A251437A16D7CF8 /* Pods-ShoppingCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCalculator.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCalculator/Pods-ShoppingCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,6 +250,7 @@
 				71D0E468282415460001D426 /* AdmobService.swift */,
 				71CD3CAF281F84C7000CED5D /* AdmobService + GoogleMobileAds.swift */,
 				71D0E46B28241AC50001D426 /* UserSettingService.swift */,
+				71D0E4842829F0320001D426 /* AppRatingService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71D0E4852829F0320001D426 /* AppRatingService.swift in Sources */,
 				711B90242677AE5700A19ED5 /* UITableViewCell + Helper.swift in Sources */,
 				71CD3CC1281F8E95000CED5D /* CalculatorSumFooterConfigurationView.swift in Sources */,
 				71CD3CC5281FCD97000CED5D /* Calculator.swift in Sources */,

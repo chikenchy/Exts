@@ -3,7 +3,6 @@ import CoreData
 import GoogleMobileAds
 import SideMenu
 import StoreKit
-import SwiftRater
 
 enum BtnType: Equatable {
     case digit(str: String)
@@ -438,7 +437,7 @@ final class CalculatorVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        SwiftRater.check()
+        appRatingServiceSingleton.check()
         
         navigationController?.setNavigationBarHidden(true, animated: false)
     }

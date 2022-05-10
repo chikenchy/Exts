@@ -3,8 +3,6 @@ import GoogleMobileAds
 import Extensions
 import AppTrackingTransparency
 
-let admobServiceSingleton = AdmobService()
-
 final class AdmobService: NSObject {
     private var interstitial: GADInterstitialAd?
     
