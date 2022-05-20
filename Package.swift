@@ -19,11 +19,11 @@ let package = Package(
         .package(url: "https://github.com/SnapKit/SnapKit", from: "5.0.1"),
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.5.0"),
         .package(url: "https://github.com/devxoul/Then", from: "2.7.0"),
-        
+        .package(url: "https://github.com/takecian/SwiftRater", branch: "master"),
     ],
     targets: [
         /// targets
-        .target(name: "Bases", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
+        .target(name: "Bases", dependencies: ["RxSwift", "SnapKit", "Alamofire", "SwiftRater"]),
         .target(name: "Extensions", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
         .target(name: "ModalMoveable", dependencies: ["RxSwift", "SnapKit", "Alamofire", "Then", "Extensions"]),
         .target(name: "MVVM", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),

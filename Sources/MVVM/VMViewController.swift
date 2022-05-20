@@ -1,4 +1,3 @@
-
 import UIKit
 import RxSwift
 
@@ -16,4 +15,5 @@ open class VMViewController<VM>: UIViewController, VMBindable {
         self.vm = vm
         self.bag = DisposeBag()
     }
+    
 }

@@ -1,6 +1,4 @@
-
 import UIKit
-
 
 class ModalMoveablePresentationController: UIPresentationController {
     private let modalMoveable: ModalMoveable
@@ -25,4 +23,5 @@ class ModalMoveablePresentationController: UIPresentationController {
             height: bounds.height - modalMoveable.minYPosition
         )
     }
+    
 }

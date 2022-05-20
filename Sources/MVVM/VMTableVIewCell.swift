@@ -11,6 +11,7 @@ open class VMTableViewCell<VM>: UITableViewCell, VMBindable {
         self.vm = vm
         self.bag = DisposeBag()
     }
+    
 }
 
 

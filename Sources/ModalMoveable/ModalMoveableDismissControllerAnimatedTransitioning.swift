@@ -1,6 +1,4 @@
-
 import UIKit
-
 
 class ModalMoveableDismissControllerAnimatedTransitioning : NSObject, UIViewControllerAnimatedTransitioning {
     private let modalMoveable: ModalMoveable
@@ -10,7 +8,7 @@ class ModalMoveableDismissControllerAnimatedTransitioning : NSObject, UIViewCont
         self.modalMoveable = modalMoveable
         super.init()
     }
-
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return modalMoveable.transitionDuration
     }
@@ -33,4 +31,5 @@ class ModalMoveableDismissControllerAnimatedTransitioning : NSObject, UIViewCont
             }
         )
     }
+    
 }

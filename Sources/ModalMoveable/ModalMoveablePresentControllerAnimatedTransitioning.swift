@@ -1,6 +1,4 @@
-
 import UIKit
-
 
 final class ModalMoveablePresentControllerAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
     private let modalMoveable: ModalMoveable
@@ -53,5 +51,6 @@ final class ModalMoveablePresentControllerAnimatedTransitioning: NSObject, UIVie
             }
         )
     }
+    
 }
 

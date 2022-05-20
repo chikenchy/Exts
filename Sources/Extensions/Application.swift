@@ -9,4 +9,5 @@ public extension UIApplication {
     static func isBuildRequired(min: String) -> Bool {
         return Bundle.main.build.compare(min, options: .numeric) != .orderedAscending
     }
+    
 }
