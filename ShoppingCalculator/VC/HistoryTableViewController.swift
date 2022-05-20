@@ -2,14 +2,9 @@ import UIKit
 import CoreData
 import SideMenu
 
-
 class HistoryTableViewController: UITableViewController {
-    
     override var prefersStatusBarHidden: Bool { true }
-    
-    
     var fetchedResultController: NSFetchedResultsController<History>!
-    
     lazy var settingButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(onSettingButtonItem))
     
     
@@ -215,4 +210,5 @@ extension HistoryTableViewController: NSFetchedResultsControllerDelegate {
         
         return result
     }
+    
 }

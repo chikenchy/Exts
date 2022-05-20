@@ -5,7 +5,7 @@ final class CoreDataService {
     lazy var context = persistentContainer.viewContext
     
     // MARK: - CoreData
-
+    
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "ShoppingCalculator")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in

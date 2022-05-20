@@ -38,7 +38,5 @@ extension AdmobService: GADFullScreenContentDelegate {
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         print(error.localizedDescription)
     }
+    
 }
-
-
-

@@ -18,10 +18,6 @@ extension CalculatorVC: UITableViewDataSource {
         footerView.sumRelay.accept(calculator.sum())
         footerView.saveRelay
             .bind(with: self) { `self`, _ in
-                let numbers = [0]
-                let _ = numbers[1]
-                
-                
                 guard !appRatingServiceSingleton.check() else {
                     appRatingServiceSingleton.incrementSignificantUsageCount()
                     return

@@ -3,7 +3,15 @@ import SwiftRater
 
 final class AppRatingService {
     
-    func setup() {
+    struct Configuration {
+        var daysUntilPrompt: Int
+        var usesUntilPrompt: Int
+        var significantUsesUntilPrompt: Int
+        var daysBeforeReminding: Int
+        var showLaterButton: Bool
+    }
+    
+    func setup(configuration: Configuration) {
         SwiftRater.daysUntilPrompt = 7
         SwiftRater.usesUntilPrompt = 10
         SwiftRater.significantUsesUntilPrompt = 5

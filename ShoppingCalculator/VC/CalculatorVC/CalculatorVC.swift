@@ -26,7 +26,7 @@ final class CalculatorVC: UIViewController {
     static var shared: CalculatorVC!
     
     override var prefersStatusBarHidden: Bool { true }
-    
+
     var selectedItemIndexPath: IndexPath? {
         didSet {
             if selectedItemIndexPath == nil {
@@ -484,4 +484,5 @@ extension CalculatorVC: CalculatorDelegate {
         selectedItemIndexPath = nil
         clearCurrent()
     }
+    
 }

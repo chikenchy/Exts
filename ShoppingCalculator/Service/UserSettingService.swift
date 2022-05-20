@@ -37,10 +37,10 @@ struct UserSetting: Codable {
 
 final class UserSettingService {
     var userSetting = UserSetting()
-    
     var currencyCode: String {
         get { userSetting.userCurrencyCode ?? (Locale.current.currencyCode ?? "") }
     }
+    
     
     func loadFromUserDefault() {
         guard let value = UserDefaults.standard.value(forKey: "UserSettings"),
@@ -77,11 +77,14 @@ final class UserSettingService {
         coreDataServiceSingleton.deleteAll()
         CalculatorVC.shared.clearAll()
     }
+    
 }
 
 
 extension Locale {
+    
     func currencySymbol(currencyCode: String) -> String? {
         return (self as NSLocale).displayName(forKey:NSLocale.Key.currencySymbol, value: currencyCode)
     }
+    
 }

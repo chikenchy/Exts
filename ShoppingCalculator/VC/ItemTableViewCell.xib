@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="F7z-6v-d1G" userLabel="nameLbl">
-                        <rect key="frame" x="16" y="8" width="83" height="46"/>
+                        <rect key="frame" x="16" y="8" width="88" height="46"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="K1C-z6-ipc">
-                        <rect key="frame" x="114" y="8" width="80" height="46"/>
+                        <rect key="frame" x="119" y="8" width="80" height="46"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,000,000원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mst-hg-Dk5" userLabel="priceLbl">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="23"/>
@@ -48,7 +47,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="zYh-eH-JDM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -56,7 +55,7 @@
                 <constraints>
                     <constraint firstItem="s3X-fe-qqJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="AUR-sV-1VP"/>
                     <constraint firstItem="K1C-z6-ipc" firstAttribute="leading" secondItem="F7z-6v-d1G" secondAttribute="trailing" constant="15" id="Dpe-Sg-yPs"/>
-                    <constraint firstItem="s3X-fe-qqJ" firstAttribute="leading" secondItem="K1C-z6-ipc" secondAttribute="trailing" constant="30" id="Emd-f8-zLo"/>
+                    <constraint firstItem="s3X-fe-qqJ" firstAttribute="leading" secondItem="K1C-z6-ipc" secondAttribute="trailing" constant="25" id="Emd-f8-zLo"/>
                     <constraint firstItem="F7z-6v-d1G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MIu-aY-WRt"/>
                     <constraint firstAttribute="trailing" secondItem="s3X-fe-qqJ" secondAttribute="trailing" constant="16" id="OqC-Uz-W48"/>
                     <constraint firstItem="F7z-6v-d1G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Pwv-t7-CMI"/>

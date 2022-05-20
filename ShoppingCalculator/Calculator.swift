@@ -149,4 +149,5 @@ final class Calculator {
             delegate?.calculator(self, isDirty: isDirty)
         }
     }
+    
 }

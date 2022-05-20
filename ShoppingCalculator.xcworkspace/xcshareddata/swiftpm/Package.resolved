@@ -137,6 +137,15 @@
         }
       },
       {
+        "package": "SwiftRater",
+        "repositoryURL": "https://github.com/takecian/SwiftRater",
+        "state": {
+          "branch": "master",
+          "revision": "41fb09d425bf6898a75d0a47523f17817c21d3d0",
+          "version": null
+        }
+      },
+      {
         "package": "Then",
         "repositoryURL": "https://github.com/devxoul/Then",
         "state": {
