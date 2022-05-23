@@ -9,6 +9,7 @@ let package = Package(
         .iOS(.v13),
     ],
     products: [
+        .library(name: "CocoaChain", targets: ["CocoaChain"]),
         .library(name: "Extensions", targets: ["Extensions"]),
         .library(name: "MVVM", targets: ["MVVM"]),
         .library(name: "Bases", targets: ["Bases"]),
@@ -24,6 +25,7 @@ let package = Package(
     targets: [
         /// targets
         .target(name: "Bases", dependencies: ["RxSwift", "SnapKit", "Alamofire", "SwiftRater"]),
+        .target(name: "CocoaChain", dependencies: ["SnapKit"]),
         .target(name: "Extensions", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
         .target(name: "ModalMoveable", dependencies: ["RxSwift", "SnapKit", "Alamofire", "Then", "Extensions"]),
         .target(name: "MVVM", dependencies: ["RxSwift", "SnapKit", "Alamofire"]),
