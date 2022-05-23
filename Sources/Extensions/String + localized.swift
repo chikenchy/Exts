@@ -9,4 +9,5 @@ public extension String {
     func localized(_ args: CVarArg...) -> String {
         return String(format: localized, args)
     }
+    
 }
