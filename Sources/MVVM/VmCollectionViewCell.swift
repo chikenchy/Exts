@@ -1,9 +1,7 @@
-#if canImport(UIKit) && canImport(RxSwift)
-
 import UIKit
 import RxSwift
 
-open class VMTableViewCell<VM>: UITableViewCell, VMBindable {
+open class VMCollectionViewCell<VM>: UICollectionViewCell, VMBindable {
     open var bag = DisposeBag()
     open private(set) var vm: VM?
     
@@ -13,5 +11,3 @@ open class VMTableViewCell<VM>: UITableViewCell, VMBindable {
     }
     
 }
-
-#endif
